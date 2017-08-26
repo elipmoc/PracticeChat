@@ -256,3 +256,5 @@ ModelManifest.xml
 /jihanki/
 /Function_calculator/
 /SAKETSUDUKERO/
+
+*.vcxproject
