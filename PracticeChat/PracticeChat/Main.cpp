@@ -1,4 +1,4 @@
-﻿#include "UseSiv3D.hpp"
+﻿
 
 void Main()
 {
