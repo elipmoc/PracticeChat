@@ -6,7 +6,7 @@ void Main()
 
 	while (siv::System::Update())
 	{
-		font(L"ようこそ、Siv3D の世界へ！").draw();
+		font(L"ようこそ、真のGithub の世界へ！").draw();
 
 		siv::Circle(siv::Mouse::Pos(), 50).draw({ 255, 0, 0, 127 });
 	}
