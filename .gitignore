@@ -258,3 +258,4 @@ ModelManifest.xml
 /SAKETSUDUKERO/
 
 *.vcxproject
+*.filters
