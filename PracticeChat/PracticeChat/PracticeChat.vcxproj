@@ -282,6 +282,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="chat\header\SceneBase.hpp" />
+    <ClInclude Include="tcpframework\test.hpp" />
     <ClInclude Include="UseSiv3D.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
