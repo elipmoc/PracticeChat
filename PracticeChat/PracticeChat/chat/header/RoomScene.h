@@ -14,12 +14,14 @@ class RoomScene : public chat::MySceneBase
 
 	void update() override
 	{
-		
+		if (siv::Input::MouseL.clicked)
+			changeScene(L"Login");
+
 	}
 
 	void draw() const override
 	{
-		font(L"テストシーン表示").draw();
+		font(L"ルームシーン表示").draw();
 
 	}
 };
