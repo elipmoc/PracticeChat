@@ -1,8 +1,12 @@
-﻿void Main()
+﻿#include "tcpframework\test.hpp"
+
+void Main()
 {
 
 	const siv::Font font(30);
 
+	tcpframework::TcpManager::Init();
+	tcpframework::TcpManager::End();
 	while (siv::System::Update())
 	{
 		font(L"ようこそ、真のGithub の世界へ！").draw();

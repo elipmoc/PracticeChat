@@ -4,13 +4,26 @@
 
 namespace tcpframework {
 	
+
+
 	class TcpManager {
 		WSADATA m_wsa_data;
+		TcpManager() = default;
+		static TcpManager* instance;
 	public:
-		TcpManager() {}
-		bool Init() {
-			WSAStartup(MAKEWORD(2, 0), &m_wsa_data);
+		
+		static bool Init() {
+			if (instance != nullptr)return false;
+			//API‰Šú‰»ˆ—
+			int error=WSAStartup(MAKEWORD(2, 0), &instance->m_wsa_data);
+			if (error != 0)return false;
 			return true;
+		}
+
+		static void End() {
+			//APII—¹ˆ—
+			WSACleanup();
+			delete instance;
 		}
 	};
 
