@@ -1,4 +1,5 @@
 #pragma once
+//
 class FontManager
 {
 	siv::Font f[4];
