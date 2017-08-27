@@ -10,27 +10,27 @@ void Main()
 {
 	chat::MySceneManager sceneManager;
 
-	sceneManager.add<chat::LoginScene>(L"Login");
-	sceneManager.add<chat::ServerScene>(L"Server");
-	sceneManager.add<chat::RoomScene>(L"Room");
-	sceneManager.add<chat::CreateScene>(L"Create");
-	//experiment::TestElipmoc e;
-	//experiment::Test_A_TO_HA a;
+	sceneManager.add<LoginScene>(L"Login");
+	sceneManager.add<ServerScene>(L"Server");
+	sceneManager.add<RoomScene>(L"Room");
+	sceneManager.add<CreateScene>(L"Create");
+	experiment::TestElipmoc e;
+	experiment::Test_A_TO_HA a;
 	experiment::TestStar s;
-	//e.Init();
-	//a.Init();
+	// e.Init();
+	a.Init();
 	s.Init();
 	
 	
 	while (siv::System::Update())
 	{
-		//e.Update();
-		//a.Update();
+		// e.Update();
+		a.Update();
 		s.Update();
 		if (!sceneManager.updateAndDraw())
 			break;
 	}
-	//e.End();
-	//a.End();
+	// e.End();
+	a.End();
 	s.End();
 }
