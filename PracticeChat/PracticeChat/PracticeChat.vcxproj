@@ -158,7 +158,6 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <ForcedIncludeFiles>UseSiv3D.hpp;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -168,8 +167,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="FontExperiment.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="tcpframework\test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc" />
@@ -284,8 +283,11 @@
     <Font Include="Example\YomogiFont.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="chat\header\CreateScene.hpp" />
+    <ClInclude Include="chat\header\LoginScene.hpp" />
+    <ClInclude Include="chat\header\RoomScene.hpp" />
     <ClInclude Include="chat\header\SceneBase.hpp" />
-    <ClInclude Include="FontExperiment.h" />
+    <ClInclude Include="chat\header\ServerScene.hpp" />
     <ClInclude Include="tcpframework\test.hpp" />
     <ClInclude Include="UseSiv3D.hpp" />
   </ItemGroup>
