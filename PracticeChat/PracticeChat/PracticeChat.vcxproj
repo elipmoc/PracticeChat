@@ -288,6 +288,9 @@
     <ClInclude Include="chat\header\RoomScene.hpp" />
     <ClInclude Include="chat\header\SceneBase.hpp" />
     <ClInclude Include="chat\header\ServerScene.hpp" />
+    <ClInclude Include="Experiment\TestElipmoc.hpp" />
+    <ClInclude Include="Experiment\Test_A_TO_HA.hpp" />
+    <ClInclude Include="Experiment\Test☆彡.hpp" />
     <ClInclude Include="tcpframework\test.hpp" />
     <ClInclude Include="UseSiv3D.hpp" />
   </ItemGroup>
