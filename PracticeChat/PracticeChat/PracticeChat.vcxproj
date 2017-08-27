@@ -168,6 +168,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FontExperiment.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -284,6 +285,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="chat\header\SceneBase.hpp" />
+    <ClInclude Include="FontExperiment.h" />
     <ClInclude Include="tcpframework\test.hpp" />
     <ClInclude Include="UseSiv3D.hpp" />
   </ItemGroup>

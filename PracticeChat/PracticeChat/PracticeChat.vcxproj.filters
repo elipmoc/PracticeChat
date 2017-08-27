@@ -76,10 +76,16 @@
     <Filter Include="リソース ファイル\Example\Well">
       <UniqueIdentifier>{eb86b9be-05b8-45c6-89c8-f91a5437157c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\ATH">
+      <UniqueIdentifier>{1c74d70f-bdc3-4b97-9b2e-010c593ca2ae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="FontExperiment.cpp">
+      <Filter>ソース ファイル\ATH</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -402,6 +408,9 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="tcpframework\test.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="FontExperiment.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
