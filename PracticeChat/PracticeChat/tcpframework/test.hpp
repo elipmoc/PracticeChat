@@ -1,5 +1,6 @@
 #pragma once
 #include <WinSock2.h>
+#include <memory>
 #include <string>
 
 namespace tcpframework {
@@ -30,6 +31,18 @@ namespace tcpframework {
 	};
 
 
+	//送信用ソケットクラス
+	class SendSocket {
+		SOCKET m_sock;
+		sockaddr_in m_addr;
+	public:
+		SendSocket(const SOCKET& sock,const sockaddr_in& addr):
+			m_sock(sock),m_addr(addr)
+		{
+
+		}
+	};
+
 	//サーバで使うソケットクラス
 	class ServerSocket {
 		SOCKET m_sock;
@@ -53,5 +66,15 @@ namespace tcpframework {
 			return listen(m_sock, m_max_connect) == 0;
 		}
 
+		std::unique_ptr<SendSocket> Accept() {
+			sockaddr_in client;
+			int len = sizeof(client);
+			SOCKET socket= accept(m_sock, reinterpret_cast<sockaddr *>(&client), &len);
+			if (socket == INVALID_SOCKET)
+				return nullptr;
+			return std::make_unique<SendSocket>(socket, client);
+		}
 	};
+
+
 }

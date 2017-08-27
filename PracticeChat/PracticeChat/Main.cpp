@@ -9,6 +9,7 @@ void Main()
 	tcpframework::ServerSocket serverSocket(19132,5);
 	siv::Println(serverSocket.Bind());
 	siv::Println(serverSocket.Listen());
+	auto send=serverSocket.Accept();
 	tcpframework::TcpManager::End();
 	while (siv::System::Update())
 	{
