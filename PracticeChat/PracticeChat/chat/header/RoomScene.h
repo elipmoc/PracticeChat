@@ -24,6 +24,8 @@ class RoomScene : public chat::MySceneBase
 	{
 		if (gui.button(L"bt1").pushed)
 			changeScene(L"Login");
+		if (gui.button(L"bt2").pushed)
+			siv::System::Exit();
 
 	}
 
