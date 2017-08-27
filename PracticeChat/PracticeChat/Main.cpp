@@ -10,10 +10,10 @@ void Main()
 {
 	chat::MySceneManager sceneManager;
 
-	sceneManager.add<LoginScene>(L"Login");
-	sceneManager.add<ServerScene>(L"Server");
-	sceneManager.add<RoomScene>(L"Room");
-	sceneManager.add<CreateScene>(L"Create");
+	sceneManager.add<chat::LoginScene>(L"Login");
+	sceneManager.add<chat::ServerScene>(L"Server");
+	sceneManager.add<chat::RoomScene>(L"Room");
+	sceneManager.add<chat::CreateScene>(L"Create");
 	experiment::TestElipmoc e;
 	experiment::Test_A_TO_HA a;
 	experiment::TestStar s;
