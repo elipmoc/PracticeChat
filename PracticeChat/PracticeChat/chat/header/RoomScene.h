@@ -13,8 +13,8 @@ class RoomScene : public chat::MySceneBase
 	{
 		gui = siv::GUI(siv::GUIStyle::Default);
 
-		gui.add(L"bt1", siv::GUIButton::Create(L"OK"));
-		gui.add(L"bt2", siv::GUIButton::Create(L"Cansel"));
+		gui.add(L"bt1", siv::GUIButton::Create(L"•s—v•¨"));
+		gui.add(L"bt2", siv::GUIButton::Create(L"ServerOut"));
 		
 		gui.setCenter(siv::Window::Center());
 
@@ -22,10 +22,8 @@ class RoomScene : public chat::MySceneBase
 
 	void update() override
 	{
-		if (gui.button(L"bt1").pushed)
-			changeScene(L"Login");
 		if (gui.button(L"bt2").pushed)
-			siv::System::Exit();
+			changeScene(L"Server");
 
 	}
 

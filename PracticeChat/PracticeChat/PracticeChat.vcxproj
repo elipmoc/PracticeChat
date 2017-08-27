@@ -285,6 +285,7 @@
     <ClInclude Include="chat\header\LoginScene.h" />
     <ClInclude Include="chat\header\RoomScene.h" />
     <ClInclude Include="chat\header\SceneBase.hpp" />
+    <ClInclude Include="chat\header\ServerScene.h" />
     <ClInclude Include="tcpframework\test.hpp" />
     <ClInclude Include="UseSiv3D.hpp" />
   </ItemGroup>

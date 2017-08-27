@@ -13,8 +13,8 @@ public:
 	{
 		gui = siv::GUI(siv::GUIStyle::Default);
 
-		gui.add(L"bt1", siv::GUIButton::Create(L"OK"));
-		gui.add(L"bt2", siv::GUIButton::Create(L"Cansel"));
+		gui.add(L"bt1", siv::GUIButton::Create(L"ServerIn"));
+		gui.add(L"bt2", siv::GUIButton::Create(L"LogOut"));
 
 		gui.setCenter(siv::Window::Center());
 
@@ -25,12 +25,12 @@ public:
 		if (gui.button(L"bt1").pushed)
 			changeScene(L"Room");
 		if (gui.button(L"bt2").pushed)
-			siv::System::Exit();
+			changeScene(L"Login");
 	}
 
 	void draw() const override
 	{
-		font(L"ログインシーン表示").draw();
+		font(L"サーバーシーン表示").draw();
 
 	}
 };
