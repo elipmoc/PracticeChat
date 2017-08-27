@@ -1,9 +1,17 @@
-﻿#include "tcpframework\test.hpp"
+#include "chat\header\LoginScene.hpp"
+#include "chat\header\RoomScene.hpp"
+#include "chat\header\ServerScene.hpp"
+#include "chat\header\CreateScene.hpp"
+#include "tcpframework\test.hpp"
 
 void Main()
 {
+	chat::MySceneManager sceneManager;
 
-	const siv::Font font(30);
+	sceneManager.add<LoginScene>(L"Login");
+	sceneManager.add<ServerScene>(L"Server");
+	sceneManager.add<RoomScene>(L"Room");
+	sceneManager.add<CreateScene>(L"Create");
 
 	siv::Println(tcpframework::TcpManager::Init());
 	tcpframework::ServerSocket serverSocket(19132,5);
@@ -13,11 +21,7 @@ void Main()
 	tcpframework::TcpManager::End();
 	while (siv::System::Update())
 	{
-		font(L"ようこそ、真のGithub の世界へ！").draw();
-		siv::Circle(siv::Mouse::Pos(), 100).draw({ 127, 127, 127, 127 });
-		siv::Circle(siv::Mouse::Pos(), 70).draw({ 255, 255, 0, 127 });
-		siv::Circle(siv::Mouse::Pos(), 50).draw({ 255, 0, 0, 127 });
-		siv::Circle(siv::Mouse::Pos(), 20).draw({ 0, 127, 0, 127 });
-		siv::Circle(siv::Mouse::Pos(), 10).draw({ 0, 0, 127, 127 });
+		if (!sceneManager.updateAndDraw())
+			break;
 	}
 }
