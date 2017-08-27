@@ -1,13 +1,13 @@
 #pragma once
 #include "chat\header\SceneBase.hpp"
 
-class RoomScene : public chat::MySceneBase
+class LoginScene : public chat::MySceneBase
 {
 	const siv::Font font;
 	siv::GUI gui;
 
 	public:
-		RoomScene():font(10){}
+		LoginScene() :font(10) {}
 
 	void init() override
 	{
@@ -15,7 +15,7 @@ class RoomScene : public chat::MySceneBase
 
 		gui.add(L"bt1", siv::GUIButton::Create(L"OK"));
 		gui.add(L"bt2", siv::GUIButton::Create(L"Cansel"));
-		
+
 		gui.setCenter(siv::Window::Center());
 
 	}
@@ -23,13 +23,12 @@ class RoomScene : public chat::MySceneBase
 	void update() override
 	{
 		if (gui.button(L"bt1").pushed)
-			changeScene(L"Login");
-
+			changeScene(L"Room");
 	}
 
 	void draw() const override
 	{
-		font(L"ルームシーン表示").draw();
+		font(L"ログインシーン表示").draw();
 
 	}
 };
