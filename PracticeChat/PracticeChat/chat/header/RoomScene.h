@@ -14,7 +14,7 @@ class RoomScene : public chat::MySceneBase
 
 	void update() override
 	{
-
+		
 	}
 
 	void draw() const override

@@ -282,6 +282,7 @@
     <Font Include="Example\YomogiFont.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="chat\header\LoginScene.h" />
     <ClInclude Include="chat\header\RoomScene.h" />
     <ClInclude Include="chat\header\SceneBase.hpp" />
     <ClInclude Include="tcpframework\test.hpp" />
