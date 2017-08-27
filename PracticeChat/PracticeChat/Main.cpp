@@ -5,7 +5,10 @@ void Main()
 
 	const siv::Font font(30);
 
-	tcpframework::TcpManager::Init();
+	siv::Println(tcpframework::TcpManager::Init());
+	tcpframework::ServerSocket serverSocket(19132,5);
+	siv::Println(serverSocket.Bind());
+	siv::Println(serverSocket.Listen());
 	tcpframework::TcpManager::End();
 	while (siv::System::Update())
 	{
