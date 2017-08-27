@@ -1,6 +1,7 @@
-﻿#include "chat\header\LoginScene.h"
-#include "chat\header\RoomScene.h"
-#include "chat\header\ServerScene.h"
+﻿#include "chat\header\LoginScene.hpp"
+#include "chat\header\RoomScene.hpp"
+#include "chat\header\ServerScene.hpp"
+#include "chat\header\CreateScene.hpp"
 
 
 void Main()
@@ -10,6 +11,7 @@ void Main()
 	sceneManager.add<LoginScene>(L"Login");
 	sceneManager.add<ServerScene>(L"Server");
 	sceneManager.add<RoomScene>(L"Room");
+	sceneManager.add<CreateScene>(L"Create");
 
 	while (siv::System::Update())
 	{

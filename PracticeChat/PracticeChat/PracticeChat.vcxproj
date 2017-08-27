@@ -282,10 +282,11 @@
     <Font Include="Example\YomogiFont.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="chat\header\LoginScene.h" />
-    <ClInclude Include="chat\header\RoomScene.h" />
+    <ClInclude Include="chat\header\CreateScene.hpp" />
+    <ClInclude Include="chat\header\LoginScene.hpp" />
+    <ClInclude Include="chat\header\RoomScene.hpp" />
     <ClInclude Include="chat\header\SceneBase.hpp" />
-    <ClInclude Include="chat\header\ServerScene.h" />
+    <ClInclude Include="chat\header\ServerScene.hpp" />
     <ClInclude Include="tcpframework\test.hpp" />
     <ClInclude Include="UseSiv3D.hpp" />
   </ItemGroup>

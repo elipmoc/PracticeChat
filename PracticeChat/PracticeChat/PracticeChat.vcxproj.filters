@@ -404,13 +404,16 @@
     <ClInclude Include="tcpframework\test.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="chat\header\RoomScene.h">
+    <ClInclude Include="chat\header\ServerScene.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="chat\header\LoginScene.h">
+    <ClInclude Include="chat\header\RoomScene.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="chat\header\ServerScene.h">
+    <ClInclude Include="chat\header\LoginScene.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="chat\header\CreateScene.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
