@@ -15,11 +15,11 @@ public:
 
 		//IPv4‚Ì“ü—Í—“
 		gui.add(siv::GUIText::Create(L"IPv4"));
-		gui.addln(L"ta1", siv::GUITextArea::Create(1,10));
+		gui.addln(L"ipAddress", siv::GUITextArea::Create(1,10));
 
 		//ƒ{ƒ^ƒ“
-		gui.add(L"bt1", siv::GUIButton::Create(L"ServerIn"));
-		gui.add(L"bt2", siv::GUIButton::Create(L"LogOut"));
+		gui.add(L"serverIn", siv::GUIButton::Create(L"ServerIn"));
+		gui.add(L"logout", siv::GUIButton::Create(L"LogOut"));
 
 		gui.setCenter(siv::Window::Center());
 
@@ -27,9 +27,9 @@ public:
 
 	void update() override
 	{
-		if (gui.button(L"bt1").pushed)
+		if (gui.button(L"serverIn").pushed)
 			changeScene(L"Room");
-		if (gui.button(L"bt2").pushed)
+		if (gui.button(L"logout").pushed)
 			changeScene(L"Login");
 	}
 
