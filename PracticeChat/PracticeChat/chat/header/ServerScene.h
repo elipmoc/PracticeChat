@@ -13,6 +13,11 @@ public:
 	{
 		gui = siv::GUI(siv::GUIStyle::Default);
 
+		//IPv4‚Ì“ü—Í—“
+		gui.add(siv::GUIText::Create(L"IPv4"));
+		gui.addln(L"ta1", siv::GUITextArea::Create(1,10));
+
+		//ƒ{ƒ^ƒ“
 		gui.add(L"bt1", siv::GUIButton::Create(L"ServerIn"));
 		gui.add(L"bt2", siv::GUIButton::Create(L"LogOut"));
 
