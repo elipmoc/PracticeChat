@@ -41,6 +41,10 @@ namespace tcpframework {
 		{
 
 		}
+		int Send(const std::string& str) {
+			return send(m_sock, str.c_str(), str.size(), 0);
+
+		}
 	};
 
 	//サーバで使うソケットクラス
