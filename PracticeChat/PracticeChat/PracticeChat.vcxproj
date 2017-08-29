@@ -167,7 +167,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ATH\FontManager.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="tcpframework\TcpManager.cpp" />
     <ClCompile Include="tcpframework\test.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -291,6 +293,8 @@
     <ClInclude Include="Experiment\TestElipmoc.hpp" />
     <ClInclude Include="Experiment\Test_A_TO_HA.hpp" />
     <ClInclude Include="Experiment\Test☆彡.hpp" />
+    <ClInclude Include="ATH\FontManager.h" />
+    <ClInclude Include="tcpframework\TcpManager.hpp" />
     <ClInclude Include="tcpframework\test.hpp" />
     <ClInclude Include="UseSiv3D.hpp" />
   </ItemGroup>
