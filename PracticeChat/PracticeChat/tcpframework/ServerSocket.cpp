@@ -12,6 +12,8 @@ namespace tcpframework {
 			:m_sock(socket(AF_INET, SOCK_STREAM, IPPROTO_TCP)),
 			m_max_connect(max_connect)
 		{
+			if (m_sock == INVALID_SOCKET)
+				throw std::string("ソケット作成失敗");
 			m_addr.sin_family = AF_INET;
 			m_addr.sin_port = htons(port);
 			m_addr.sin_addr.S_un.S_addr = INADDR_ANY;

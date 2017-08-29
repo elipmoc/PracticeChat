@@ -15,17 +15,16 @@ namespace tcpframework {
 			//ip文字列をipネットワークバイトオーダーに変換する
 			if(inet_pton(AF_INET,serverName.c_str(),&hoge)!=1){
 				struct addrinfo hints, *res;
-				int err;
 				memset(&hints, 0, sizeof(hints));
 				hints.ai_socktype = SOCK_STREAM;
 				hints.ai_family = AF_INET;
 				//ホスト名の時、ホスト名からhostent構造体取得
-				if ((err = getaddrinfo(serverName.c_str(),nullptr,&hints,&res)))
+				if (getaddrinfo(serverName.c_str(),nullptr,&hints,&res))
 					throw std::string("ホスト名をIPに変換失敗");
 
 				hoge.S_un = ((struct sockaddr_in *)(res->ai_addr))->sin_addr.S_un;
+				freeaddrinfo(res);
 				return hoge;
-				freeaddrinfo(res);					
 			}
 			return hoge;
 		}
@@ -35,7 +34,8 @@ namespace tcpframework {
 			m_port(port),
 			m_sock(socket(AF_INET, SOCK_STREAM, IPPROTO_TCP))
 		{
-
+			if(m_sock==INVALID_SOCKET)
+				throw std::string("ソケット作成失敗");
 			//接続先サーバーの設定
 
 			//アドレスファミリ設定
