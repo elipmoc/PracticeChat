@@ -6,11 +6,8 @@ namespace experiment {
 	public:
 		void Init() {
 			siv::Println(tcpframework::TcpManager::Init());
-			tcpframework::ServerSocket serverSocket(19132, 5);
-			siv::Println(serverSocket.Bind());
-			siv::Println(serverSocket.Listen());
-			auto send = serverSocket.Accept();
-			send->Send("Ç¢Ç¢ÇÊÇ±Ç¢ÇÊÅIÅI");
+			tcpframework::ClientSocket client(19132, "localhost");
+			siv::Println(client.Connect());
 		}
 		void Update() {}
 		void End() { tcpframework::TcpManager::End(); }
