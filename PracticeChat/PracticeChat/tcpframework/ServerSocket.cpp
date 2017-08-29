@@ -19,11 +19,11 @@ namespace tcpframework {
 			m_addr.sin_addr.S_un.S_addr = INADDR_ANY;
 		}
 
-		bool Bind() {
+		bool Bind(){
 			return bind(m_sock, reinterpret_cast<sockaddr*>(&m_addr), sizeof(m_addr)) == 0;
 		}
 
-		bool Listen() {
+		bool Listen()const{
 			return listen(m_sock, m_max_connect) == 0;
 		}
 
@@ -51,7 +51,7 @@ namespace tcpframework {
 		return impl->Bind();
 	}
 
-	bool ServerSocket::Listen()
+	bool ServerSocket::Listen()const
 	{
 		return impl->Listen();
 	}

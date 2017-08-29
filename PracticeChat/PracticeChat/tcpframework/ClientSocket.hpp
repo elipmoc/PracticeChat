@@ -12,6 +12,8 @@ namespace tcpframework {
 		~ClientSocket();
 
 		//Ú‘±‚ğ‘Ò‹@‚·‚éB
-		bool Connect();
+		bool Connect()const;
+
+		int Send(const std::string&)const;
 	};
 }

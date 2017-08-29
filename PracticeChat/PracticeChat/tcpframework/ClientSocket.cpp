@@ -46,14 +46,16 @@ namespace tcpframework {
 		
 		}
 
-		bool Connect() {
+		bool Connect()const {
 			//‚Â‚È‚ª‚é‚Ü‚Åƒ‹[ƒv
 			while (connect(m_sock, (LPSOCKADDR)&m_serverData, sizeof(m_serverData)) == SOCKET_ERROR)
 			{
 			}
-			std::string str("aaa");
-			send(m_sock,str.c_str(), str.size(), 0);
 			return true;
+		}
+
+		int Send(const std::string& str) const{
+			return send(m_sock, str.c_str(), str.size(), 0);
 		}
 
 	};
@@ -67,9 +69,14 @@ namespace tcpframework {
 	{
 	}
 
-	bool ClientSocket::Connect()
+	bool ClientSocket::Connect()const
 	{
 		return impl->Connect();
+	}
+
+	int ClientSocket::Send(const std::string & str)const
+	{
+		return impl->Send(str);
 	}
 
 }
