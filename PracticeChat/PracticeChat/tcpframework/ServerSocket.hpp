@@ -23,6 +23,8 @@ namespace tcpframework {
 
 		//接続を待機する。接続されたらその接続先のソケットを返す
 		std::unique_ptr<SendSocket> Accept();
+
+		bool Close();
 	};
 
 }

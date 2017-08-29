@@ -35,6 +35,11 @@ namespace tcpframework {
 				return nullptr;
 			return std::make_unique<SendSocket>(socket, client);
 		}
+
+		bool Close() {
+			return  shutdown(m_sock, SD_BOTH) == 0 && closesocket(m_sock) == 0;
+		}
+
 	};
 
 	ServerSocket::ServerSocket(unsigned short port, int max_connect)
@@ -59,6 +64,11 @@ namespace tcpframework {
 	std::unique_ptr<SendSocket> ServerSocket::Accept()
 	{
 		return impl->Accept();
+	}
+
+	bool ServerSocket::Close()
+	{
+		return impl->Close();
 	}
 
 }
