@@ -13,6 +13,11 @@ namespace tcpframework {
 		int Send(const std::string str){
 			return send(m_sock, str.c_str(), str.size(), 0);
 		}
+
+		bool Close() {
+			return shutdown(m_sock, SD_BOTH) == 0 && closesocket(m_sock) == 0;
+		}
+
 	};
 
 	SendSocket::SendSocket(const SOCKET & sock, const sockaddr_in & addr)
@@ -22,6 +27,11 @@ namespace tcpframework {
 
 	SendSocket::~SendSocket()
 	{
+	}
+
+	bool SendSocket::Close()
+	{
+		return impl->Close();
 	}
 
 	int SendSocket::Send(const std::string & str)

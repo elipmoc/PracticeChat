@@ -4,6 +4,8 @@
 
 
 namespace tcpframework {
+	//受信バッファサイズ
+	const size_t RECVSIZE = 65536;
 	class ClientSocket::ClientSocket_impl {
 		SOCKET m_sock;
 		sockaddr_in m_serverData;
@@ -58,6 +60,22 @@ namespace tcpframework {
 			return send(m_sock, str.c_str(), str.size(), 0);
 		}
 
+		ByteArray Receive() {
+			//受信バッファ
+			static char recvbuf[RECVSIZE];
+			//得たバイト数を記録する変数
+			int givebyte;
+			//データを受信
+			givebyte = recv(m_sock, recvbuf, sizeof(recvbuf), 0);
+			if (givebyte == SOCKET_ERROR) { return ByteArray(); }
+			return ByteArray(recvbuf,givebyte);
+		}
+
+
+		bool Close() {
+			return shutdown(m_sock,SD_BOTH)==0 && closesocket(m_sock)==0;
+		}
+
 	};
 
 	ClientSocket::ClientSocket(unsigned short port, const std::string & serverIp)
@@ -77,6 +95,16 @@ namespace tcpframework {
 	int ClientSocket::Send(const std::string & str)const
 	{
 		return impl->Send(str);
+	}
+
+	ByteArray ClientSocket::Receive() const
+	{
+		return impl->Receive();
+	}
+
+	bool ClientSocket::Close()
+	{
+		return impl->Close();
 	}
 
 }

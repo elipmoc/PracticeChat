@@ -19,6 +19,8 @@ namespace tcpframework {
 		SendSocket(const SOCKET& sock, const sockaddr_in& addr);
 		~SendSocket();
 
+		bool Close();
+
 		//データを送信する（返り値は送信したバイト数。 -1でエラー）
 		int Send(const std::string& str);
 	};
