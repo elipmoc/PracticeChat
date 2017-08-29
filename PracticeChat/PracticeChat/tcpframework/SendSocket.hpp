@@ -15,6 +15,7 @@ namespace tcpframework {
 		std::unique_ptr<SendSocket_impl> impl;
 
 	public:
+		//接続先のソケットとその接続先の情報を渡す
 		SendSocket(const SOCKET& sock, const sockaddr_in& addr);
 		~SendSocket();
 
