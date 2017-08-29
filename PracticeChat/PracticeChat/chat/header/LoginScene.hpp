@@ -19,8 +19,8 @@ namespace chat {
 			gui.addln(L"userName", siv::GUITextArea::Create(1, 10));
 
 			//ƒ{ƒ^ƒ“
-			gui.add(L"login", siv::GUIButton::Create(L"Login"));
-			gui.add(L"create", siv::GUIButton::Create(L"Create"));
+			gui.add(L"create", siv::GUIButton::Create(L"•”‰®ì¬"));
+			gui.add(L"login", siv::GUIButton::Create(L"“üº"));
 
 			gui.setCenter(siv::Window::Center());
 

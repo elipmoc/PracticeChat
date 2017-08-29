@@ -19,8 +19,8 @@ namespace chat {
 			gui.addln(L"portNumber", siv::GUITextArea::Create(1, 10));
 
 			//ƒ{ƒ^ƒ“
-			gui.add(L"create", siv::GUIButton::Create(L"ServerCreate"));
-			gui.add(L"logout", siv::GUIButton::Create(L"LogOut"));
+			gui.add(L"create", siv::GUIButton::Create(L"•”‰®ì¬"));
+			gui.add(L"logout", siv::GUIButton::Create(L"‘Şº"));
 
 			gui.setCenter(siv::Window::Center());
 

@@ -18,19 +18,19 @@ void Main()
 	experiment::Test_A_TO_HA a;
 	experiment::TestStar s;
 	// e.Init();
-	a.Init();
+	//a.Init();
 	s.Init();
 	
 	
 	while (siv::System::Update())
 	{
 		// e.Update();
-		a.Update();
+		//a.Update();
 		s.Update();
 		if (!sceneManager.updateAndDraw())
 			break;
 	}
 	// e.End();
-	a.End();
+	//a.End();
 	s.End();
 }
