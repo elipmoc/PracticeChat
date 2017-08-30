@@ -4,7 +4,7 @@
 #include "chat\header\CreateScene.hpp"
 #include "Experiment\TestElipmoc.hpp"
 #include "Experiment\Test_A_TO_HA.hpp"
-#include "Experiment\Test™œc.hpp"
+#include "Experiment\TestÂâ„¢Å“c.hpp"
 
 void Main()
 {

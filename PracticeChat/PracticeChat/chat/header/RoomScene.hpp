@@ -5,34 +5,33 @@ namespace chat {
 	class RoomScene : public MySceneBase
 	{
 		siv::GUI gui;
-
 	public:
 
 		void init() override
 		{
 			gui = siv::GUI(siv::GUIStyle::Default);
-			//ƒ†[ƒU[ƒl[ƒ€
-			gui.add(siv::GUIText::Create(L"ƒ†[ƒU[–¼"));
+			//ãƒ¦ãƒ¼ã‚¶ãƒ¼ãƒãƒ¼ãƒ 
+			gui.add(siv::GUIText::Create(L"ãƒ¦ãƒ¼ã‚¶ãƒ¼å"));
 			gui.addln(L"userName", siv::GUITextField::Create(10));
 
-			//ƒ{ƒ^ƒ“
-			gui.addln(L"serverOut", siv::GUIButton::Create(L"‘Şº"));
+			//ãƒœã‚¿ãƒ³
+			gui.addln(L"serverOut", siv::GUIButton::Create(L"é€€å®¤"));
 
 			gui.add(L"hr1", siv::GUIHorizontalLine::Create(1));
 
-			//ƒ`ƒƒƒbƒg—“
+			//ãƒãƒ£ãƒƒãƒˆæ¬„
 			gui.addln(L"chatMain", siv::GUITextArea::Create(10, 25));
 
 			gui.add(L"hr2", siv::GUIHorizontalLine::Create(1));
 
-			//ƒƒbƒZ[ƒW“ü—Í—“
+			//ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å…¥åŠ›æ¬„
 			gui.add(L"message", siv::GUITextField::Create(14));
-			//‘—Mƒ{ƒ^ƒ“
-			gui.addln(L"send", siv::GUIButton::Create(L"‘—M"));
+			//é€ä¿¡ãƒœã‚¿ãƒ³
+			gui.addln(L"send", siv::GUIButton::Create(L"é€ä¿¡"));
 
-			//FƒR[ƒh—“
+			//è‰²ã‚³ãƒ¼ãƒ‰æ¬„
 			gui.add(L"color", siv::GUITextField::Create(7));
-			//ƒGƒtƒFƒNƒg
+			//ã‚¨ãƒ•ã‚§ã‚¯ãƒˆ
 			gui.add(L"effect", siv::GUICheckBox::Create({ L"Bold",L"Italic" }));
 
 			gui.setCenter(siv::Window::Center());
@@ -48,17 +47,17 @@ namespace chat {
 
 		void draw() const override
 		{
-			m_data->font(L"ƒ‹[ƒ€ƒV[ƒ“•\¦").draw();
+			m_data->font(L"ãƒ«ãƒ¼ãƒ ã‚·ãƒ¼ãƒ³è¡¨ç¤º").draw();
 
 		}
 
-		//ServerOutƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½‚ÌŠÖ”
+		//ServerOutãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸæ™‚ã®é–¢æ•°
 		void ServerOutPush()
 		{
 			changeScene(L"Login");
 		}
 
-		//Sendƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½‚ÌŠÖ”
+		//Sendãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸæ™‚ã®é–¢æ•°
 		void SendPush()
 		{
 
