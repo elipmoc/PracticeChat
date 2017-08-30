@@ -16,7 +16,7 @@ namespace chat {
 
 			//ユーザー名の入力欄
 			gui.addln(siv::GUIText::Create(L"ユーザー名"));
-			gui.addln(L"userName", siv::GUITextArea::Create(1, 10));
+			gui.addln(L"userName", siv::GUITextField::Create(10));
 
 			//ボタン
 			gui.add(L"create", siv::GUIButton::Create(L"部屋作成"));
@@ -28,7 +28,8 @@ namespace chat {
 
 		void update() override
 		{
-			//if (gui.)
+			if (gui.textField(L"userName").active)
+				siv::IME::SetCompositionWindowPos(gui.getPos() + siv::Point(25,48));
 			if (gui.button(L"login").pushed)
 				LoginPush();
 			if (gui.button(L"create").pushed)

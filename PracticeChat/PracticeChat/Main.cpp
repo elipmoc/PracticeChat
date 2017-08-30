@@ -14,8 +14,8 @@ void Main()
 	sceneManager.add<chat::ServerScene>(L"Server");
 	sceneManager.add<chat::RoomScene>(L"Room");
 	sceneManager.add<chat::CreateScene>(L"Create");
-	experiment::TestElipmoc e;
-	experiment::Test_A_TO_HA a;
+	//experiment::TestElipmoc e;
+	//experiment::Test_A_TO_HA a;
 	experiment::TestStar s;
 	// e.Init();
 	//a.Init();
