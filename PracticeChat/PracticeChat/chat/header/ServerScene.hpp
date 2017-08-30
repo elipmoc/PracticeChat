@@ -40,14 +40,13 @@ namespace chat {
 		void draw() const override
 		{
 			m_data->font(L"サーバーシーン表示").draw();
-			m_data->font(m_data->userN).draw();
-
 
 		}
 
 		//ServerInボタンを押した時の関数
 		void ServerInPush()
 		{
+			m_data->ipAddress.assign(gui.textField(L"ipAddress").text);
 			changeScene(L"Room");
 		}
 
