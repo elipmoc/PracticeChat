@@ -5,7 +5,6 @@ class RoomScene : public chat::MySceneBase
 {
 	const siv::Font font;
 	siv::GUI gui;
-
 	public:
 		RoomScene():font(10){}
 
