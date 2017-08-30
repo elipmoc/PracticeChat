@@ -455,5 +455,8 @@
     <ClInclude Include="tcpframework\ClientSocket.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="tcpframework\ByteArray.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -296,6 +296,7 @@
     <ClInclude Include="Experiment\Test_A_TO_HA.hpp" />
     <ClInclude Include="Experiment\Test☆彡.hpp" />
     <ClInclude Include="ATH\FontManager.h" />
+    <ClInclude Include="tcpframework\ByteArray.hpp" />
     <ClInclude Include="tcpframework\ClientSocket.hpp" />
     <ClInclude Include="tcpframework\SendSocket.hpp" />
     <ClInclude Include="tcpframework\ServerSocket.hpp" />

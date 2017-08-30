@@ -24,7 +24,7 @@ void Main()
 	
 	while (siv::System::Update())
 	{
-		 e.Update();
+		e.Update();
 		a.Update();
 		s.Update();
 		if (!sceneManager.updateAndDraw())

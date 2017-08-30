@@ -4,8 +4,6 @@
 
 
 namespace tcpframework {
-	//受信バッファサイズ
-	const size_t RECVSIZE = 65536;
 	class ClientSocket::ClientSocket_impl {
 		SOCKET m_sock;
 		sockaddr_in m_serverData;

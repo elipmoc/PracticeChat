@@ -18,6 +18,17 @@ namespace tcpframework {
 			return shutdown(m_sock, SD_BOTH) == 0 && closesocket(m_sock) == 0;
 		}
 
+		ByteArray Receive() {
+			//受信バッファ
+			static char recvbuf[RECVSIZE];
+			//得たバイト数を記録する変数
+			int givebyte;
+			//データを受信
+			givebyte = recv(m_sock, recvbuf, sizeof(recvbuf), 0);
+			if (givebyte == SOCKET_ERROR) { return ByteArray(); }
+			return ByteArray(recvbuf, givebyte);
+		}
+
 	};
 
 	SendSocket::SendSocket(const SOCKET & sock, const sockaddr_in & addr)
@@ -27,6 +38,11 @@ namespace tcpframework {
 
 	SendSocket::~SendSocket()
 	{
+	}
+
+	ByteArray SendSocket::Receive()
+	{
+		return impl->Receive();
 	}
 
 	bool SendSocket::Close()

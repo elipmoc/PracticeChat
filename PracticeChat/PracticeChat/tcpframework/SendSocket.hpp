@@ -1,5 +1,6 @@
 #pragma once
 #include <memory>
+#include "ByteArray.hpp"
 
 //くそのwinsockで定義されている型を前方宣言
 #ifdef	_WIN64
@@ -21,6 +22,8 @@ namespace tcpframework {
 		//接続先のソケットとその接続先の情報を渡す
 		SendSocket(const SOCKET& sock, const sockaddr_in& addr);
 		~SendSocket();
+
+		ByteArray Receive();
 
 		bool Close();
 
