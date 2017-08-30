@@ -434,9 +434,6 @@
     <ClInclude Include="Experiment\TestElipmoc.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Experiment\Test☆彡.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="ATH\FontManager.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -456,6 +453,9 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="tcpframework\ByteArray.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Experiment\TestStar.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
