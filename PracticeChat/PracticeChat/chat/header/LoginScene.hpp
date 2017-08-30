@@ -45,7 +45,7 @@ namespace chat {
 		void LoginPush()
 		{
 			//ユーザーネームを代入
-			m_data->userN.assign(gui.textField(L"userName").text);
+			m_data->userName.assign(gui.textField(L"userName").text);
 			changeScene(L"Server");
 
 		}
@@ -54,7 +54,7 @@ namespace chat {
 		void CreatePush()
 		{
 			//ユーザーネームを代入
-			m_data->userN.assign(gui.textField(L"userName").text);
+			m_data->userName.assign(gui.textField(L"userName").text);
 			changeScene(L"Create");
 		}
 	};
