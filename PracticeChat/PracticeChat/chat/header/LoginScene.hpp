@@ -28,6 +28,7 @@ namespace chat {
 
 		void update() override
 		{
+			//if (gui.)
 			if (gui.button(L"login").pushed)
 				LoginPush();
 			if (gui.button(L"create").pushed)
