@@ -44,6 +44,7 @@ namespace chat {
 		//Createƒ{ƒ^ƒ“‚ð‰Ÿ‚µ‚½Žž‚ÌŠÖ”
 		void CreatePush()
 		{
+			m_data->portNumber.assign(gui.textField(L"portNumber").text);
 			changeScene(L"Room");
 		}
 

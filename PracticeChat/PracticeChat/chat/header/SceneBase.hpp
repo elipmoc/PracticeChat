@@ -3,7 +3,9 @@
 namespace chat {
 	//シーン間で共有するデータ
 	struct ShareGameData {
-		siv::String userN;
+		siv::String userName;
+		siv::String ipAddress;
+		siv::String portNumber;
 		siv::Font font{ 10 };
 	};
 
