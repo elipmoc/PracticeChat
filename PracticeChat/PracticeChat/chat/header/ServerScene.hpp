@@ -4,11 +4,9 @@
 namespace chat {
 	class ServerScene : public MySceneBase
 	{
-		const siv::Font font;
 		siv::GUI gui;
 
 	public:
-		ServerScene() :font(10) {}
 
 		void init() override
 		{
@@ -16,7 +14,7 @@ namespace chat {
 
 			//IPv4の入力欄
 			gui.add(siv::GUIText::Create(L"IPv4"));
-			gui.addln(L"ipAddress", siv::GUITextArea::Create(1, 10));
+			gui.addln(L"ipAddress", siv::GUITextField::Create(11));
 
 			//ボタン
 			gui.add(L"serverIn", siv::GUIButton::Create(L"入室"));
@@ -28,6 +26,10 @@ namespace chat {
 
 		void update() override
 		{
+			//IMEの位置変更
+			if (gui.textField(L"ipAddress").active)
+				siv::IME::SetCompositionWindowPos(gui.getPos() + siv::Point(67, 17));
+
 			if (gui.button(L"serverIn").pushed)
 				ServerInPush();
 			if (gui.button(L"logout").pushed)
@@ -37,7 +39,9 @@ namespace chat {
 
 		void draw() const override
 		{
-			font(L"サーバーシーン表示").draw();
+			m_data->font(L"サーバーシーン表示").draw();
+			m_data->font(m_data->userN).draw();
+
 
 		}
 

@@ -4,11 +4,9 @@
 namespace chat {
 	class CreateScene : public MySceneBase
 	{
-		const siv::Font font;
 		siv::GUI gui;
 
 	public:
-		CreateScene() :font(10) {}
 
 		void init() override
 		{
@@ -16,11 +14,11 @@ namespace chat {
 
 			//ユーザー名の入力欄
 			gui.addln(siv::GUIText::Create(L"Port番号"));
-			gui.addln(L"portNumber", siv::GUITextArea::Create(1, 10));
-
+			gui.addln(L"portNumber", siv::GUITextField::Create(11));
+			
 			//ボタン
 			gui.add(L"create", siv::GUIButton::Create(L"部屋作成"));
-			gui.add(L"logout", siv::GUIButton::Create(L"退室"));
+			gui.add(L"logout", siv::GUIButton::Create(L"ログアウト"));
 
 			gui.setCenter(siv::Window::Center());
 
@@ -28,6 +26,10 @@ namespace chat {
 
 		void update() override
 		{
+			//IMEの位置変更
+			if (gui.textField(L"portNumber").active)
+				siv::IME::SetCompositionWindowPos(gui.getPos() + siv::Point(25, 48));
+
 			if (gui.button(L"create").pushed)
 				CreatePush();
 			if (gui.button(L"logout").pushed)
@@ -36,7 +38,7 @@ namespace chat {
 
 		void draw() const override
 		{
-			font(L"クリエイトシーン表示").draw();
+			m_data->font(L"クリエイトシーン表示").draw();
 		}
 
 		//Createボタンを押した時の関数

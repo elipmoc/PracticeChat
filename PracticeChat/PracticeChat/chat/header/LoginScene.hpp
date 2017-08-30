@@ -4,11 +4,9 @@
 namespace chat {
 	class LoginScene : public MySceneBase
 	{
-		const siv::Font font;
 		siv::GUI gui;
 
 	public:
-		LoginScene() :font(10) {}
 
 		void init() override
 		{
@@ -28,8 +26,10 @@ namespace chat {
 
 		void update() override
 		{
+			//IMEの位置変更
 			if (gui.textField(L"userName").active)
 				siv::IME::SetCompositionWindowPos(gui.getPos() + siv::Point(25,48));
+
 			if (gui.button(L"login").pushed)
 				LoginPush();
 			if (gui.button(L"create").pushed)
@@ -38,12 +38,14 @@ namespace chat {
 
 		void draw() const override
 		{
-			font(L"ログインシーン表示").draw();
+			m_data->font(L"ログインシーン表示").draw();
 		}
 
 		//Loginボタンを押した時の関数
 		void LoginPush()
 		{
+			//ユーザーネームを代入
+			m_data->userN.assign(gui.textField(L"userName").text);
 			changeScene(L"Server");
 
 		}
@@ -51,6 +53,8 @@ namespace chat {
 		//Createボタンを押した時の関数
 		void CreatePush()
 		{
+			//ユーザーネームを代入
+			m_data->userN.assign(gui.textField(L"userName").text);
 			changeScene(L"Create");
 		}
 	};

@@ -2,7 +2,11 @@
 
 namespace chat {
 	//シーン間で共有するデータ
-	struct ShareGameData { };
+	struct ShareGameData {
+		siv::String userN;
+		siv::Font font{ 10 };
+	};
+
 	//シーン操作クラス
 	using MySceneManager = ham::SceneManager<siv::String, ShareGameData>;
 	//シーンの基底クラス

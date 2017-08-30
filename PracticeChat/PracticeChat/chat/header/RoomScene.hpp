@@ -4,18 +4,16 @@
 namespace chat {
 	class RoomScene : public MySceneBase
 	{
-		const siv::Font font;
 		siv::GUI gui;
 
 	public:
-		RoomScene() :font(10) {}
 
 		void init() override
 		{
 			gui = siv::GUI(siv::GUIStyle::Default);
 			//ユーザーネーム
 			gui.add(siv::GUIText::Create(L"ユーザー名"));
-			gui.addln(L"userName", siv::GUITextArea::Create(1, 10));
+			gui.addln(L"userName", siv::GUITextField::Create(10));
 
 			//ボタン
 			gui.addln(L"serverOut", siv::GUIButton::Create(L"退室"));
@@ -23,17 +21,17 @@ namespace chat {
 			gui.add(L"hr1", siv::GUIHorizontalLine::Create(1));
 
 			//チャット欄
-			gui.addln(L"chatMain", siv::GUITextArea::Create(10, 20));
+			gui.addln(L"chatMain", siv::GUITextArea::Create(10, 25));
 
 			gui.add(L"hr2", siv::GUIHorizontalLine::Create(1));
 
 			//メッセージ入力欄
-			gui.add(L"message", siv::GUITextArea::Create(1, 10));
+			gui.add(L"message", siv::GUITextField::Create(14));
 			//送信ボタン
 			gui.addln(L"send", siv::GUIButton::Create(L"送信"));
 
 			//色コード欄
-			gui.add(L"color", siv::GUITextArea::Create(1, 5));
+			gui.add(L"color", siv::GUITextField::Create(7));
 			//エフェクト
 			gui.add(L"effect", siv::GUICheckBox::Create({ L"Bold",L"Italic" }));
 
@@ -50,7 +48,7 @@ namespace chat {
 
 		void draw() const override
 		{
-			font(L"ルームシーン表示").draw();
+			m_data->font(L"ルームシーン表示").draw();
 
 		}
 
