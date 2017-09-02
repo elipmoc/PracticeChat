@@ -23,8 +23,10 @@ namespace tcpframework {
 		SendSocket(const SOCKET& sock, const sockaddr_in& addr);
 		~SendSocket();
 
+		//データを受け取り
 		ByteArray Receive();
 
+		//ソケット終了処理
 		bool Close();
 
 		//データを送信する（返り値は送信したバイト数。 -1でエラー）
