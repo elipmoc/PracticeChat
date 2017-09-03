@@ -14,17 +14,17 @@ void Main()
 	sceneManager.add<chat::ServerScene>(L"Server");
 	sceneManager.add<chat::RoomScene>(L"Room");
 	sceneManager.add<chat::CreateScene>(L"Create");
-	//experiment::TestElipmoc e;
+	experiment::TestElipmoc e;
 	//experiment::Test_A_TO_HA a;
 	experiment::TestStar s;
-	// e.Init();
+	 e.Init();
 	//a.Init();
 	s.Init();
 	
 	
 	while (siv::System::Update())
 	{
-		// e.Update();
+		 e.Update();
 		//a.Update();
 		s.Update();
 		if (!sceneManager.updateAndDraw())

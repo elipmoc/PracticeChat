@@ -7,7 +7,7 @@ namespace tcpframework {
 	//SoketのReceiveで受け取るバイト配列
 	class ByteArray {
 
-		const size_t m_size;
+		size_t m_size;
 		char* m_bytes;
 
 	public:
@@ -26,9 +26,20 @@ namespace tcpframework {
 		ByteArray(ByteArray&& move) :m_size(move.m_size) {
 			m_bytes = move.m_bytes;
 			move.m_bytes = nullptr;
+			move.m_size = 0;
 		}
 
-		~ByteArray() {
+		void operator =(ByteArray&& movecp) {
+			Clear();
+			m_size = movecp.m_size;
+			m_bytes = movecp.m_bytes;
+			movecp.m_bytes = nullptr;
+			movecp.m_size = 0;
+		}
+
+		~ByteArray() { Clear(); }
+
+		void Clear() {
 			if (m_bytes != nullptr)
 				delete[] m_bytes;
 		}
