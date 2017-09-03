@@ -6,6 +6,8 @@ namespace tcpframework {
 	class SendSocket::SendSocket_impl {
 		SOCKET m_sock;
 		sockaddr_in m_addr;
+		//受信したデータをひとつ分貯める
+		ByteArray m_buf;
 	public:
 		SendSocket_impl(const SOCKET& sock, const sockaddr_in& addr) :
 		m_sock(sock), m_addr(addr){}
@@ -18,15 +20,20 @@ namespace tcpframework {
 			return shutdown(m_sock, SD_BOTH) == 0 && closesocket(m_sock) == 0;
 		}
 
-		ByteArray Receive() {
+		int Receive() {
 			//受信バッファ
 			static char recvbuf[RECVSIZE];
 			//得たバイト数を記録する変数
 			int givebyte;
 			//データを受信
 			givebyte = recv(m_sock, recvbuf, sizeof(recvbuf), 0);
-			if (givebyte == SOCKET_ERROR) { return ByteArray(); }
-			return ByteArray(recvbuf, givebyte);
+			if (givebyte == SOCKET_ERROR) { return SOCKET_ERROR; }
+			m_buf= ByteArray(recvbuf, givebyte);
+			return givebyte;
+		}
+
+		ByteArray GetBuf()noexcept {
+			return std::move(m_buf);
 		}
 
 	};
@@ -40,9 +47,14 @@ namespace tcpframework {
 	{
 	}
 
-	ByteArray SendSocket::Receive()
+	int SendSocket::Receive()
 	{
 		return impl->Receive();
+	}
+
+	ByteArray SendSocket::GetBuf() noexcept
+	{
+		return impl->GetBuf();
 	}
 
 	bool SendSocket::Close()
