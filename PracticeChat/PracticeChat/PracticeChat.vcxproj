@@ -169,7 +169,10 @@
   <ItemGroup>
     <ClCompile Include="ATH\FontManager.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="tcpframework\test.cpp" />
+    <ClCompile Include="tcpframework\ClientSocket.cpp" />
+    <ClCompile Include="tcpframework\SendSocket.cpp" />
+    <ClCompile Include="tcpframework\ServerSocket.cpp" />
+    <ClCompile Include="tcpframework\TcpManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc" />
@@ -291,9 +294,14 @@
     <ClInclude Include="chat\header\ServerScene.hpp" />
     <ClInclude Include="Experiment\TestElipmoc.hpp" />
     <ClInclude Include="Experiment\Test_A_TO_HA.hpp" />
-    <ClInclude Include="Experiment\Test☆彡.hpp" />
+    <ClInclude Include="Experiment\TestStar.hpp" />
     <ClInclude Include="ATH\FontManager.h" />
-    <ClInclude Include="tcpframework\test.hpp" />
+    <ClInclude Include="tcpframework\ByteArray.hpp" />
+    <ClInclude Include="tcpframework\ClientSocket.hpp" />
+    <ClInclude Include="tcpframework\SendSocket.hpp" />
+    <ClInclude Include="tcpframework\ServerSocket.hpp" />
+    <ClInclude Include="tcpframework\TcpManager.hpp" />
+    <ClInclude Include="tcpframework\tcpframework.hpp" />
     <ClInclude Include="UseSiv3D.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

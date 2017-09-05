@@ -1,68 +1,68 @@
-#pragma once
+ï»¿#pragma once
 #include "chat\header\SceneBase.hpp"
 
-class RoomScene : public chat::MySceneBase
-{
-	const siv::Font font;
-	siv::GUI gui;
+namespace chat {
+	class RoomScene : public MySceneBase
+	{
+		siv::GUI gui;
 	public:
-		RoomScene():font(10){}
 
-	void init() override
-	{
-		gui = siv::GUI(siv::GUIStyle::Default);
-		//ƒ†[ƒU[ƒl[ƒ€
-		gui.add(siv::GUIText::Create(L"ƒ†[ƒU[–¼"));
-		gui.addln(L"userName", siv::GUITextArea::Create(1, 10));
+		void init() override
+		{
+			gui = siv::GUI(siv::GUIStyle::Default);
+			//ãƒ¦ãƒ¼ã‚¶ãƒ¼ãƒãƒ¼ãƒ 
+			gui.add(siv::GUIText::Create(L"ãƒ¦ãƒ¼ã‚¶ãƒ¼å"));
+			gui.addln(L"userName", siv::GUITextField::Create(10));
 
-		//ƒ{ƒ^ƒ“
-		gui.addln(L"serverOut", siv::GUIButton::Create(L"ServerOut"));
+			//ãƒœã‚¿ãƒ³
+			gui.addln(L"serverOut", siv::GUIButton::Create(L"é€€å®¤"));
 
-		gui.add(L"hr1", siv::GUIHorizontalLine::Create(1));
+			gui.add(L"hr1", siv::GUIHorizontalLine::Create(1));
 
-		//ƒ`ƒƒƒbƒg—“
-		gui.addln(L"chatMain",siv::GUITextArea::Create(10, 20));
+			//ãƒãƒ£ãƒƒãƒˆæ¬„
+			gui.addln(L"chatMain", siv::GUITextArea::Create(10, 25));
 
-		gui.add(L"hr2", siv::GUIHorizontalLine::Create(1));
+			gui.add(L"hr2", siv::GUIHorizontalLine::Create(1));
 
-		//ƒƒbƒZ[ƒW“ü—Í—“
-		gui.add(L"message", siv::GUITextArea::Create(1, 10));
-		//‘—Mƒ{ƒ^ƒ“
-		gui.addln(L"send", siv::GUIButton::Create(L"‘—M"));
-		
-		//FƒR[ƒh—“
-		gui.add(L"color", siv::GUITextArea::Create(1, 5));
-		//ƒGƒtƒFƒNƒg
-		gui.add(L"effect", siv::GUICheckBox::Create({ L"Bold",L"Italic" }));
+			//ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å…¥åŠ›æ¬„
+			gui.add(L"message", siv::GUITextField::Create(14));
+			//é€ä¿¡ãƒœã‚¿ãƒ³
+			gui.addln(L"send", siv::GUIButton::Create(L"é€ä¿¡"));
 
-		gui.setCenter(siv::Window::Center());
-	}
+			//è‰²ã‚³ãƒ¼ãƒ‰æ¬„
+			gui.add(L"color", siv::GUITextField::Create(7));
+			//ã‚¨ãƒ•ã‚§ã‚¯ãƒˆ
+			gui.add(L"effect", siv::GUICheckBox::Create({ L"Bold",L"Italic" }));
 
-	void update() override
-	{
-		if (gui.button(L"serverOut").pushed)
-			ServerOutPush();
-		if (gui.button(L"send").pushed)
-			SendPush();
-	}
+			gui.setCenter(siv::Window::Center());
+		}
 
-	void draw() const override
-	{
-		font(L"ƒ‹[ƒ€ƒV[ƒ“•\¦").draw();
+		void update() override
+		{
+			if (gui.button(L"serverOut").pushed)
+				ServerOutPush();
+			if (gui.button(L"send").pushed)
+				SendPush();
+		}
 
-	}
+		void draw() const override
+		{
+			m_data->font(L"ãƒ«ãƒ¼ãƒ ã‚·ãƒ¼ãƒ³è¡¨ç¤º").draw();
 
-	//ServerOutƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½‚ÌŠÖ”
-	void ServerOutPush() 
-	{
-		changeScene(L"Login");
-	}
+		}
 
-	//Sendƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½‚ÌŠÖ”
-	void SendPush()
-	{
+		//ServerOutãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸæ™‚ã®é–¢æ•°
+		void ServerOutPush()
+		{
+			changeScene(L"Login");
+		}
 
-	}
+		//Sendãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸæ™‚ã®é–¢æ•°
+		void SendPush()
+		{
+
+		}
 
 
-};
+	};
+}

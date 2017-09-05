@@ -3,25 +3,29 @@
 namespace experiment {
 
 	class TestElipmoc {
-		std::unique_ptr<tcpframework::ClientSocket> client;
+		std::unique_ptr<tcpframework::ServerSocket> server;
+		std::unique_ptr<tcpframework::SendSocket> send;
 	public:
 
 		void Init() {
 			siv::Println(tcpframework::TcpManager::Init());
-			client = std::make_unique<tcpframework::ClientSocket>(19132, "localhost");
-			siv::Println(client->Connect());
-			client->Send("Ç†ÇÌÇ†Ç†Ç†Ç†Ç†ÅI");
+			server = std::make_unique<tcpframework::ServerSocket>(19132,5);
+			siv::Println(server->Bind());
+			siv::Println(server->Listen());
+			send=server->Accept();
+			send->Send("Ç†ÇÌÇ†Ç†Ç†Ç†Ç†ÅI");
 			
 		}
 		void Update() {
-			auto&& bytes=client->Receive();
-			if (bytes.Size() == 0 || bytes.Size() == -1)
+			if (send->Receive()==-1)
 				return;
+			auto bytes = send->GetBuf();
 			std::string s(bytes.GetBytes(),bytes.Size());
 			siv::Println(siv::CharacterSet::Widen(s));
 		}
 		void End() {
-			client->Close();
+			send->Close();
+			server->Close();
 			tcpframework::TcpManager::End(); 
 		}
 	};
