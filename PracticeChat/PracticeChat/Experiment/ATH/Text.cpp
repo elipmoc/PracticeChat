@@ -19,7 +19,7 @@ namespace experiment {
 		
 		void Text::Draw()
 		{
-			font(text).draw(drawX, drawY);
+			font(text).draw(drawX, drawY, color);
 		}
 
 		void Text::SetFontsize(int fontSize) noexcept {
