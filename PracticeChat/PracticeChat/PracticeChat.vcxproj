@@ -173,6 +173,7 @@
     <ClCompile Include="tcpframework\SendSocket.cpp" />
     <ClCompile Include="tcpframework\ServerSocket.cpp" />
     <ClCompile Include="tcpframework\TcpManager.cpp" />
+    <ClCompile Include="ATH\Text.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc" />
@@ -302,6 +303,7 @@
     <ClInclude Include="tcpframework\ServerSocket.hpp" />
     <ClInclude Include="tcpframework\TcpManager.hpp" />
     <ClInclude Include="tcpframework\tcpframework.hpp" />
+    <ClInclude Include="ATH\Text.h" />
     <ClInclude Include="UseSiv3D.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
