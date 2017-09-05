@@ -1,54 +1,59 @@
 #pragma once
 #include "chat\header\SceneBase.hpp"
 
-class ServerScene : public chat::MySceneBase
-{
-	const siv::Font font;
-	siv::GUI gui;
-
-public:
-	ServerScene() :font(10) {}
-
-	void init() override
+namespace chat {
+	class ServerScene : public MySceneBase
 	{
-		gui = siv::GUI(siv::GUIStyle::Default);
+		siv::GUI gui;
 
-		//IPv4の入力欄
-		gui.add(siv::GUIText::Create(L"IPv4"));
-		gui.addln(L"ipAddress", siv::GUITextArea::Create(1, 10));
+	public:
 
-		//ボタン
-		gui.add(L"serverIn", siv::GUIButton::Create(L"ServerIn"));
-		gui.add(L"logout", siv::GUIButton::Create(L"LogOut"));
+		void init() override
+		{
+			gui = siv::GUI(siv::GUIStyle::Default);
 
-		gui.setCenter(siv::Window::Center());
+			//IPv4の入力欄
+			gui.add(siv::GUIText::Create(L"IPv4"));
+			gui.addln(L"ipAddress", siv::GUITextField::Create(11));
 
-	}
+			//ボタン
+			gui.add(L"serverIn", siv::GUIButton::Create(L"入室"));
+			gui.add(L"logout", siv::GUIButton::Create(L"ログアウト"));
 
-	void update() override
-	{
-		if (gui.button(L"serverIn").pushed)
-			ServerInPush();
-		if (gui.button(L"logout").pushed)
-			LogoutPush();
-			
-	}
+			gui.setCenter(siv::Window::Center());
 
-	void draw() const override
-	{
-		font(L"サーバーシーン表示").draw();
+		}
 
-	}
+		void update() override
+		{
+			//IMEの位置変更
+			if (gui.textField(L"ipAddress").active)
+				siv::IME::SetCompositionWindowPos(gui.getPos() + siv::Point(67, 17));
 
-	//ServerInボタンを押した時の関数
-	void ServerInPush() 
-	{
-		changeScene(L"Room");
-	}
+			if (gui.button(L"serverIn").pushed)
+				ServerInPush();
+			if (gui.button(L"logout").pushed)
+				LogoutPush();
 
-	//Logoutボタンを押した時の関数
-	void LogoutPush() 
-	{
-		changeScene(L"Login");
-	}
-};
+		}
+
+		void draw() const override
+		{
+			m_data->font(L"サーバーシーン表示").draw();
+
+		}
+
+		//ServerInボタンを押した時の関数
+		void ServerInPush()
+		{
+			m_data->ipAddress.assign(gui.textField(L"ipAddress").text);
+			changeScene(L"Room");
+		}
+
+		//Logoutボタンを押した時の関数
+		void LogoutPush()
+		{
+			changeScene(L"Login");
+		}
+	};
+}

@@ -4,12 +4,12 @@
 
 
 namespace tcpframework {
-	//受信バッファサイズ
-	const size_t RECVSIZE = 65536;
 	class ClientSocket::ClientSocket_impl {
 		SOCKET m_sock;
 		sockaddr_in m_serverData;
 		const u_short m_port;
+		//受信したデータをひとつ分貯める
+		ByteArray m_buf;
 
 		//ホスト名をバイナリipに変換する
 		static IN_ADDR serverNameToIp(const std::string& serverName) {
@@ -60,20 +60,25 @@ namespace tcpframework {
 			return send(m_sock, str.c_str(), str.size(), 0);
 		}
 
-		ByteArray Receive() {
+		int Receive() {
 			//受信バッファ
 			static char recvbuf[RECVSIZE];
 			//得たバイト数を記録する変数
 			int givebyte;
 			//データを受信
 			givebyte = recv(m_sock, recvbuf, sizeof(recvbuf), 0);
-			if (givebyte == SOCKET_ERROR) { return ByteArray(); }
-			return ByteArray(recvbuf,givebyte);
+			if (givebyte == SOCKET_ERROR) { return SOCKET_ERROR; }
+			m_buf= std::move(ByteArray(recvbuf,givebyte));
+			return givebyte;
 		}
 
 
 		bool Close() {
 			return shutdown(m_sock,SD_BOTH)==0 && closesocket(m_sock)==0;
+		}
+
+		ByteArray GetBuf()noexcept {
+			return std::move(m_buf);
 		}
 
 	};
@@ -97,9 +102,14 @@ namespace tcpframework {
 		return impl->Send(str);
 	}
 
-	ByteArray ClientSocket::Receive() const
+	int ClientSocket::Receive()
 	{
 		return impl->Receive();
+	}
+
+	ByteArray ClientSocket::GetBuf()
+	{
+		return impl->GetBuf();
 	}
 
 	bool ClientSocket::Close()

@@ -93,10 +93,13 @@
     <ClCompile Include="tcpframework\ClientSocket.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Experiment\ATH\FontManager.cpp">
+    <ClCompile Include="ATH\FontManager.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Experiment\ATH\Text.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Experiment\ATH\M_Font.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -437,9 +440,6 @@
     <ClInclude Include="Experiment\TestElipmoc.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Experiment\Test☆彡.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="tcpframework\TcpManager.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -455,10 +455,19 @@
     <ClInclude Include="tcpframework\ClientSocket.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Experiment\ATH\FontManager.h">
+    <ClInclude Include="tcpframework\ByteArray.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Experiment\TestStar.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ATH\FontManager.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Experiment\ATH\Text.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Experiment\ATH\M_Font.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
