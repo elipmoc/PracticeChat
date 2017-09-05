@@ -461,13 +461,11 @@
     <ClInclude Include="Experiment\TestStar.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="ATH\FontManager.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Experiment\ATH\Text.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Experiment\ATH\M_Font.h">
+    <ClInclude Include="tcpframework\Server.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
