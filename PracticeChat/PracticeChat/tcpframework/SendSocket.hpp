@@ -27,7 +27,10 @@ namespace tcpframework {
 		int Receive();
 
 		//bufを得る
-		ByteArray GetBuf()noexcept;
+		ByteArray PopBuf();
+
+		//キューが空かどうか
+		bool IsEmptyBuf()const ;
 
 		//ソケット終了処理
 		bool Close();

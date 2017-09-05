@@ -1,38 +1,38 @@
 #pragma once
 #include "../tcpframework/tcpframework.hpp"
 #include <fstream>
+#include <future>
 namespace experiment {
 
 	class TestElipmoc {
-		std::unique_ptr<tcpframework::ClientSocket> client;
+		std::unique_ptr<tcpframework::ServerSocket> server;
+		std::unique_ptr<tcpframework::SendSocket> send;
+		std::future<void> f;
 	public:
 
 		void Init() {
 			siv::Println(tcpframework::TcpManager::Init());
-			client = std::make_unique<tcpframework::ClientSocket>(80, "yahoo.co.jp");
-			siv::Println(client->Connect());
-			client->Send(
-				"GET  HTTP/1.0\r\n\r\n"
-			);
-			std::ofstream ofs("html.html");
-			while (client->Receive() > 0) {
-				auto bytes = client->GetBuf();
-				std::string s(bytes.GetBytes(), bytes.Size());
-			//	siv::Println(siv::CharacterSet::Widen(s));
-				ofs << s;
-			}
-			ofs.close();
+			server = std::make_unique<tcpframework::ServerSocket>(19132, 5);
+			siv::Println(server->Bind());
+			siv::Println(server->Listen());
+			send=server->Accept();
+			send->Send("‚¤‚í‚í‚í‚í‚í‚í‚—‚—‚—‚—‚—");
+			f=std::async(std::launch::async, [send = &send]() {
+				while(send->get()->Receive()!=-1);
+			});
 		}
 		void Update() {
-		/*	if (client->Receive()==-1)
+			
+			
+			if (send->IsEmptyBuf())
 				return;
-			auto bytes = client->GetBuf();
+			auto bytes = send->PopBuf();
 			std::string s(bytes.GetBytes(),bytes.Size());
 			siv::Println(siv::CharacterSet::Widen(s));
-			siv::Println(L"adfaf");*/
 		}
 		void End() {
-			client->Close();
+			server->Close();
+			send->Close();
 			tcpframework::TcpManager::End(); 
 		}
 	};
