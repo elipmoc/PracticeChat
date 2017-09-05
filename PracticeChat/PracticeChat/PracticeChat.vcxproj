@@ -299,6 +299,7 @@
     <ClInclude Include="tcpframework\ByteArray.hpp" />
     <ClInclude Include="tcpframework\ClientSocket.hpp" />
     <ClInclude Include="tcpframework\SendSocket.hpp" />
+    <ClInclude Include="tcpframework\Server.hpp" />
     <ClInclude Include="tcpframework\ServerSocket.hpp" />
     <ClInclude Include="tcpframework\TcpManager.hpp" />
     <ClInclude Include="tcpframework\tcpframework.hpp" />
