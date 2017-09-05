@@ -11,6 +11,7 @@ namespace experiment {
 			siv::Println(L"OK");
 		}
 		void Update(){
+			/*
 			frame++; frame %= 10;
 			if (frame == 0) {
 				fontsize++;
@@ -21,6 +22,7 @@ namespace experiment {
 			fm.f[1](L"ネーム空間はタブー").draw(10,60);
 			fm.f[2](L"ネーム空間はタブー").draw(10,110);
 			fm.f[3](L"ネーム空間はタブー").draw(10,160);
+			*/
 		}
 		void End(){}
 	};

@@ -7,13 +7,17 @@ namespace experiment {
 		// 2 = イタリックテキスト
 		// 3 = ボールドイタリック
 
+		/* ファクトリパターンっぽくする */
 		class FontManager
 		{
-			void _makeFont(int kind, int fontsize);
 		public:
-			siv::Font f[4];
+			siv::Font static makeFont(int kind, int fontsize);
+
+			/*
 			void setFontsize(int kind, int FontSize);
 			FontManager();
+			*/
+
 			~FontManager();
 		};
 	}

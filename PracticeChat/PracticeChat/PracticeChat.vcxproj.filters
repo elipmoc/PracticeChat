@@ -81,9 +81,6 @@
     <ClCompile Include="Main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="ATH\FontManager.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="tcpframework\TcpManager.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -96,7 +93,10 @@
     <ClCompile Include="tcpframework\ClientSocket.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="ATH\Text.cpp">
+    <ClCompile Include="Experiment\ATH\FontManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Experiment\ATH\Text.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -440,9 +440,6 @@
     <ClInclude Include="Experiment\Test☆彡.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="ATH\FontManager.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="tcpframework\TcpManager.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -458,7 +455,10 @@
     <ClInclude Include="tcpframework\ClientSocket.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="ATH\Text.h">
+    <ClInclude Include="Experiment\ATH\FontManager.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Experiment\ATH\Text.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

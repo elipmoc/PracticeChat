@@ -4,15 +4,16 @@ namespace experiment {
 		class Text
 		{
 			s3d::Font font;
+		public:
+			int posX, posY;
 
 			Text();
-		public:
 			Text(int fontSize);
 			Text(int fontSize, s3d::Typeface tf, s3d::FontStyle fs);
 			Text(int fontSize, int fontPattern);
 
 			void Update();
-			void End(){}
+			void End();
 
 			~Text();
 		};

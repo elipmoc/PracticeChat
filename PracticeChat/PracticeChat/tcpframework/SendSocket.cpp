@@ -4,10 +4,10 @@
 
 namespace tcpframework {
 	class SendSocket::SendSocket_impl {
-		SOCKET m_sock;
+		SOCKET2 m_sock;
 		sockaddr_in m_addr;
 	public:
-		SendSocket_impl(const SOCKET& sock, const sockaddr_in& addr) :
+		SendSocket_impl(const SOCKET2& sock, const sockaddr_in& addr) :
 		m_sock(sock), m_addr(addr){}
 
 		int Send(const std::string str){
@@ -20,7 +20,7 @@ namespace tcpframework {
 
 	};
 
-	SendSocket::SendSocket(const SOCKET & sock, const sockaddr_in & addr)
+	SendSocket::SendSocket(const SOCKET2 & sock, const sockaddr_in & addr)
 		:impl(std::make_unique<SendSocket_impl>(sock,addr))
 	{
 	}
