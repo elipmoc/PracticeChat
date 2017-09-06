@@ -7,8 +7,9 @@ namespace tcpframework {
 
 	//サーバでクライアントの待機に使うソケットクラス
 	class ServerSocket {
-		class ServerSocket_impl;
-		std::unique_ptr<ServerSocket_impl> impl;
+		SOCKET m_sock;
+		std::unique_ptr<sockaddr_in> m_addr;
+		const int m_max_connect;
 	public:
 		ServerSocket(unsigned short port, int max_connect);
 
