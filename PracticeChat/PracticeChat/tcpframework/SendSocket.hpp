@@ -16,10 +16,9 @@ namespace tcpframework {
 
 	//送信用ソケットクラス
 	class SendSocket {
-		//class SendSocket_impl;
-		//std::unique_ptr<SendSocket_impl> impl;
 		const SOCKET m_sock;
-
+		//ソケットを終了したかどうか
+		bool closeFlag = false;
 	public:
 		//接続先のソケットを渡す
 		SendSocket(const SOCKET& sock) :m_sock(sock){};
@@ -43,6 +42,8 @@ namespace tcpframework {
 
 		//ソケット終了処理
 		bool Close();
+
+		bool IsClose() const noexcept { return closeFlag; }
 
 		//データを送信する（返り値は送信したバイト数。 -1でエラー）
 		int Send(const std::string& str);

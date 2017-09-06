@@ -22,8 +22,6 @@ namespace experiment {
 			});
 		}
 		void Update() {
-			
-
 		}
 		void End() {
 			server->Close();

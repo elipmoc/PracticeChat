@@ -8,6 +8,8 @@ namespace tcpframework {
 
 	SendSocket::~SendSocket()
 	{
+		if (closeFlag == false)
+			Close();
 	}
 
 	int SendSocket::Receive(ByteArray&& bytes)
@@ -26,6 +28,7 @@ namespace tcpframework {
 
 	bool SendSocket::Close()
 	{
+		closeFlag = true;
 		return shutdown(m_sock, SD_BOTH) == 0 && closesocket(m_sock) == 0;
 	}
 
