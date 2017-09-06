@@ -23,7 +23,7 @@ namespace tcpframework {
 		//Receive‚Ì”ñ“¯Šú”Å
 		template<class GetResultFunc>
 		void ReceiveAsync(GetResultFunc func) {
-			std::thread thr([&func, this]() {
+			std::thread thr([func=func, this]()mutable {
 				ByteArray bytes;
 				while (true) {
 					int byteSize = this->Receive(std::move(bytes));

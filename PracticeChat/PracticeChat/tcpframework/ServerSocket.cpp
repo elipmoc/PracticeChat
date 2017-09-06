@@ -23,7 +23,6 @@ namespace tcpframework {
 	bool ServerSocket::Listen()const {
 		return listen(m_sock, m_max_connect) == 0;
 	}
-
 	std::unique_ptr<SendSocket> ServerSocket::Accept() {
 		sockaddr_in client;
 		int len = sizeof(client);
@@ -40,7 +39,7 @@ namespace tcpframework {
 
 	ServerSocket::~ServerSocket()
 	{
-		if (closeFlag = false)
+		if (closeFlag == false)
 			Close();
 	}
 }

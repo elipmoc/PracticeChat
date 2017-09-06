@@ -26,6 +26,16 @@ namespace tcpframework {
 		//接続を待機する。接続されたらその接続先のソケットを返す
 		std::unique_ptr<SendSocket> Accept();
 
+		//Acceptの非同期版
+		template<class GetSendSocketFunc>
+		void  AcceptAsync(GetSendSocketFunc func){
+			std::thread thr([func=func, this]() mutable{
+				while (true)
+					if (func(this->Accept()) == false)return;
+			});
+			thr.detach();
+		};
+
 		//ソケット終了処理
 		bool Close();
 	};
