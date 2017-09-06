@@ -1,13 +1,10 @@
 #pragma once
 #include "../tcpframework/tcpframework.hpp"
-#include <fstream>
-#include <future>
 namespace experiment {
 
 	class TestElipmoc {
 		std::unique_ptr<tcpframework::ServerSocket> server;
 		std::unique_ptr<tcpframework::SendSocket> send;
-		std::future<void> f;
 	public:
 
 		void Init() {
@@ -17,18 +14,16 @@ namespace experiment {
 			siv::Println(server->Listen());
 			send=server->Accept();
 			send->Send("‚¤‚í‚í‚í‚í‚í‚í‚—‚—‚—‚—‚—");
-			f=std::async(std::launch::async, [send = &send]() {
-				while(send->get()->Receive()!=-1);
+			send->ReceiveAsync([](tcpframework::ByteArray&& bytes ,int byteSize) {
+				if (byteSize == -1)return false;
+				std::string s(bytes.GetBytes(), bytes.Size());
+				siv::Println(siv::CharacterSet::Widen(s));
+				return true;
 			});
 		}
 		void Update() {
 			
-			
-			if (send->IsEmptyBuf())
-				return;
-			auto bytes = send->PopBuf();
-			std::string s(bytes.GetBytes(),bytes.Size());
-			siv::Println(siv::CharacterSet::Widen(s));
+
 		}
 		void End() {
 			server->Close();

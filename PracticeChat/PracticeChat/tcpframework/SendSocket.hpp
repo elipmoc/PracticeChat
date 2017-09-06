@@ -1,5 +1,6 @@
 #pragma once
 #include <memory>
+#include <thread>
 #include "ByteArray.hpp"
 
 //くそのwinsockで定義されている型を前方宣言
@@ -15,22 +16,30 @@ namespace tcpframework {
 
 	//送信用ソケットクラス
 	class SendSocket {
-		class SendSocket_impl;
-		std::unique_ptr<SendSocket_impl> impl;
+		//class SendSocket_impl;
+		//std::unique_ptr<SendSocket_impl> impl;
+		const SOCKET m_sock;
 
 	public:
-		//接続先のソケットとその接続先の情報を渡す
-		SendSocket(const SOCKET& sock, const sockaddr_in& addr);
+		//接続先のソケットを渡す
+		SendSocket(const SOCKET& sock) :m_sock(sock){};
 		~SendSocket();
 
-		//データを受け取ってbufに貯める
-		int Receive();
+		//データを受け取る
+		int Receive(ByteArray&&);
 
-		//bufを得る
-		ByteArray PopBuf();
-
-		//キューが空かどうか
-		bool IsEmptyBuf()const ;
+		//Receiveの非同期版
+		template<class GetResultFunc>
+		void ReceiveAsync(GetResultFunc func) {
+			std::thread thr([&func, this]() {
+				ByteArray bytes;
+				while (true) {
+					int byteSize = this->Receive(std::move(bytes));
+					if (func(std::move(bytes), byteSize) == false)return;
+				}
+			});
+			thr.detach();
+		}
 
 		//ソケット終了処理
 		bool Close();

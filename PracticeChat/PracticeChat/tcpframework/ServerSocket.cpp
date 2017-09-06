@@ -33,7 +33,7 @@ namespace tcpframework {
 			SOCKET socket = accept(m_sock, reinterpret_cast<sockaddr *>(&client), &len);
 			if (socket == INVALID_SOCKET)
 				return nullptr;
-			return std::make_unique<SendSocket>(socket, client);
+			return std::make_unique<SendSocket>(socket);
 		}
 
 		bool Close() {
