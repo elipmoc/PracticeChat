@@ -6,7 +6,6 @@ namespace experiment {
 		std::unique_ptr<tcpframework::ServerSocket> server;
 		std::unique_ptr<tcpframework::SendSocket> send;
 	public:
-
 		void Init() {
 			siv::Println(tcpframework::TcpManager::Init());
 			server = std::make_unique<tcpframework::ServerSocket>(19132, 5);
@@ -25,7 +24,6 @@ namespace experiment {
 		}
 		void End() {
 			server->Close();
-			send->Close();
 			tcpframework::TcpManager::End(); 
 		}
 	};

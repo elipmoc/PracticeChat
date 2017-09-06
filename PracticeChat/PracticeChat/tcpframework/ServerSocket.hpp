@@ -1,4 +1,5 @@
 #pragma once
+#include "def.hpp"
 #include <memory>
 namespace tcpframework {
 
@@ -8,8 +9,6 @@ namespace tcpframework {
 	class ServerSocket {
 		class ServerSocket_impl;
 		std::unique_ptr<ServerSocket_impl> impl;
-
-
 	public:
 		ServerSocket(unsigned short port, int max_connect);
 
