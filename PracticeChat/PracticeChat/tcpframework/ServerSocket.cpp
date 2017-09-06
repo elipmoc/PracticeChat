@@ -34,10 +34,13 @@ namespace tcpframework {
 	}
 
 	bool ServerSocket::Close() {
+		closeFlag = true;
 		return  shutdown(m_sock, SD_BOTH) == 0 && closesocket(m_sock) == 0;
 	}
 
 	ServerSocket::~ServerSocket()
 	{
+		if (closeFlag = false)
+			Close();
 	}
 }

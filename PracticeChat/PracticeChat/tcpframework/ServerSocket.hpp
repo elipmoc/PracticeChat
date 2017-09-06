@@ -10,6 +10,8 @@ namespace tcpframework {
 		SOCKET m_sock;
 		std::unique_ptr<sockaddr_in> m_addr;
 		const int m_max_connect;
+		//ソケット終了フラグ
+		bool closeFlag = false;
 	public:
 		ServerSocket(unsigned short port, int max_connect);
 

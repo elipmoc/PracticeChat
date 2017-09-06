@@ -23,7 +23,6 @@ namespace experiment {
 		void Update() {
 		}
 		void End() {
-			server->Close();
 			tcpframework::TcpManager::End(); 
 		}
 	};
