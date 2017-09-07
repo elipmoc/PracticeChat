@@ -3,14 +3,14 @@
 
 namespace experiment {
 	namespace ATH {
-		Text::Text(const siv::String& _text, int _fontSize, int _fontPattern, int _drawX, int _drawY, const siv::Color& _color)
+		Text::Text(const siv::String& _text, int _fontSize, siv::FontStyle _fontStyle, int _drawX, int _drawY, const siv::Color& _color)
 		{
 			text = _text;
 			fontSize = _fontSize;
-			fontPattern = _fontPattern;
+			fontStyle = _fontStyle;
 			drawX = _drawX;
 			drawY = _drawY;
-			font = experiment::ATH::M_Font::MakeFont(fontPattern, fontSize);
+			font = experiment::ATH::MakeFont(fontStyle, fontSize);
 		}
 
 		void Text::Update()
@@ -19,11 +19,11 @@ namespace experiment {
 		
 		void Text::Draw()
 		{
-			font(text).draw(drawX, drawY, color);
+			font(text).draw(drawX, drawY,color);
 		}
 
 		void Text::SetFontsize(int fontSize) noexcept {
-			font = experiment::ATH::M_Font::MakeFont(fontPattern, fontSize);
+			font = experiment::ATH::MakeFont(fontStyle ,fontSize);
 		}
 
 		void Text::SetColor(const siv::Color& _color) noexcept

@@ -2,6 +2,7 @@
 
 namespace experiment {
 	namespace ATH {
+		siv::Font MakeFont(siv::FontStyle kind, int fontsize);
 		class M_Font
 		{
 			// 0 = ノーマルテキスト
@@ -9,7 +10,7 @@ namespace experiment {
 			// 2 = イタリックテキスト
 			// 3 = ボールドイタリック
 		public:
-			static siv::Font MakeFont(int kind, int fontsize);
+		//	static siv::Font MakeFont(siv::FontStyle kind, int fontsize);
 			M_Font();
 			~M_Font();
 		};

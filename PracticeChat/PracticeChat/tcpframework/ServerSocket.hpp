@@ -1,4 +1,5 @@
 #pragma once
+#include "def.hpp"
 #include <memory>
 namespace tcpframework {
 
@@ -6,10 +7,11 @@ namespace tcpframework {
 
 	//サーバでクライアントの待機に使うソケットクラス
 	class ServerSocket {
-		class ServerSocket_impl;
-		std::unique_ptr<ServerSocket_impl> impl;
-
-
+		SOCKET m_sock;
+		std::unique_ptr<sockaddr_in> m_addr;
+		const int m_max_connect;
+		//ソケット終了フラグ
+		bool closeFlag = false;
 	public:
 		ServerSocket(unsigned short port, int max_connect);
 
@@ -23,6 +25,16 @@ namespace tcpframework {
 
 		//接続を待機する。接続されたらその接続先のソケットを返す
 		std::unique_ptr<SendSocket> Accept();
+
+		//Acceptの非同期版
+		template<class GetSendSocketFunc>
+		void  AcceptAsync(GetSendSocketFunc func){
+			std::thread thr([func=func, this]() mutable{
+				while (true)
+					if (func(this->Accept()) == false)return;
+			});
+			thr.detach();
+		};
 
 		//ソケット終了処理
 		bool Close();
