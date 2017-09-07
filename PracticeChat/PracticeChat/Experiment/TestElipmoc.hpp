@@ -9,6 +9,7 @@ namespace experiment {
 	using tcpframework::ServerSocket;
 	using tcpframework::SendSocket;
 	using tcpframework::ClientSocket;
+	using tcpframework::ByteArray;
 
 	class TestElipmoc {
 		u_ptr<ServerSocket> server;
@@ -26,7 +27,7 @@ namespace experiment {
 			server->AcceptAsync([&send=send,&mtx=mtx](auto sendsock) mutable
 			{
 				sendsock->Send("‚¤‚í‚í‚í‚í‚í‚í‚—‚—‚—‚—‚—");
-				sendsock->ReceiveAsync([sendsock=sendsock.get()](tcpframework::ByteArray&& bytes, int byteSize)mutable
+				sendsock->ReceiveAsync([sendsock=sendsock.get()](ByteArray&& bytes, int byteSize)mutable
 				{
 					if (byteSize == -1) {
 						sendsock->Close();
@@ -42,7 +43,19 @@ namespace experiment {
 			});
 #elif defined CLIENT
 			client = std::make_unique<ClientSocket>(19132, "localhost");
-			client->ConnectAsync([&client = client]() {client->Send("‚¨‚Á‚ë‚ë‚ë‚ë‚¨‚’I"); });
+			client->ConnectAsync([&client = client]() {
+				client->Send("‚¨‚Á‚ë‚ë‚ë‚ë‚¨‚’I"); 
+				client->ReceiveAsync([](ByteArray&& bytes, int byteSize)mutable
+				{
+					if (byteSize == -1) {
+						return false;
+					}
+					std::string s(bytes.GetBytes(), bytes.Size());
+					siv::Println(siv::CharacterSet::Widen(s));
+					return true;
+				});
+
+			});
 #endif
 		}
 		void Update() {
@@ -56,10 +69,6 @@ namespace experiment {
 			send.erase(itr, send.end());
 			siv::Println(send.size());
 #elif defined CLIENT
-			if(client->Receive()==-1)return;
-			auto bytes = client->GetBuf();
-			std::string s(bytes.GetBytes(), bytes.Size());
-			siv::Println(siv::CharacterSet::Widen(s));
 #endif
 		}
 		void End() {

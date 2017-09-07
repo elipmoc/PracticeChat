@@ -61,7 +61,7 @@ namespace tcpframework {
 		return send(m_sock, str.c_str(), str.size(), 0);
 	}
 
-	int ClientSocket::Receive()
+	int ClientSocket::Receive(ByteArray&& bytes)
 	{
 		//受信バッファ
 		static char recvbuf[RECVSIZE];
@@ -69,14 +69,9 @@ namespace tcpframework {
 		int givebyte;
 		//データを受信
 		givebyte = recv(m_sock, recvbuf, sizeof(recvbuf), 0);
-		if (givebyte == SOCKET_ERROR) { return SOCKET_ERROR; }
-		m_buf = std::move(ByteArray(recvbuf, givebyte));
+		if (givebyte == SOCKET_ERROR || givebyte==0) { return givebyte; }
+		bytes = std::move(ByteArray(recvbuf, givebyte));
 		return givebyte;
-	}
-
-	ByteArray ClientSocket::GetBuf()
-	{
-		return std::move(m_buf);
 	}
 
 	bool ClientSocket::Close()

@@ -9,8 +9,6 @@ namespace tcpframework {
 		SOCKET m_sock;
 		std::unique_ptr<sockaddr_in> m_serverData;
 		const unsigned short m_port;
-		//受信したデータをひとつ分貯める
-		ByteArray m_buf;
 		//ソケット終了フラグ
 		bool closeFlag = false;
 	public:
@@ -38,10 +36,21 @@ namespace tcpframework {
 		//データをBufに貯める
 		//返り値はバイト数で
 		//エラーなら-1が返る
-		int Receive();
+		int Receive(ByteArray&&);
 
-		//Bufを得る
-		ByteArray GetBuf();
+		//Receiveの非同期版
+		template<class GetResultFunc>
+		void ReceiveAsync(GetResultFunc func) {
+			std::thread thr([func = func, this]()mutable {
+				ByteArray bytes;
+				while (true) {
+					int byteSize = this->Receive(std::move(bytes));
+					if (func(std::move(bytes), byteSize) == false)return;
+				}
+			});
+			thr.detach();
+		}
+
 
 		//ソケットを終了する
 		bool Close();
