@@ -1,14 +1,18 @@
 ﻿#pragma once
 #include "chat\header\SceneBase.hpp"
+#include "Experiment\\ATH\ServerTest.hpp"
 
 namespace chat {
 	class RoomScene : public MySceneBase
 	{
+		experiment::ATH::ServerTest server;
 		siv::GUI gui;
 	public:
 
 		void init() override
 		{
+			server.Init();
+
 			gui = siv::GUI(siv::GUIStyle::Default);
 			//ユーザーネーム
 			gui.add(siv::GUIText::Create(L"ユーザー名"));
@@ -48,7 +52,6 @@ namespace chat {
 		void draw() const override
 		{
 			m_data->font(L"ルームシーン表示").draw();
-
 		}
 
 		//ServerOutボタンを押した時の関数
@@ -60,9 +63,9 @@ namespace chat {
 		//Sendボタンを押した時の関数
 		void SendPush()
 		{
-
+			s3d::String str = gui.textField(L"message")._get_text();
+			server.SendMessage(str.narrow());
+			s3d::Println(str);
 		}
-
-
 	};
 }

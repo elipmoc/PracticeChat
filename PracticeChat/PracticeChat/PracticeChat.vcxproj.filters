@@ -8,6 +8,7 @@
     <ClCompile Include="tcpframework\SendSocket.cpp" />
     <ClCompile Include="tcpframework\ServerSocket.cpp" />
     <ClCompile Include="tcpframework\TcpManager.cpp" />
+    <ClCompile Include="Experiment\ATH\ServerTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="chat\header\CreateScene.hpp" />
@@ -29,6 +30,7 @@
     <ClInclude Include="tcpframework\tcpframework.hpp" />
     <ClInclude Include="UseSiv3D.hpp" />
     <ClInclude Include="tcpframework\def.hpp" />
+    <ClInclude Include="Experiment\ATH\ServerTest.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc" />

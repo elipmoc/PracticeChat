@@ -2,7 +2,7 @@
 #include "../tcpframework/tcpframework.hpp"
 #include <vector>
 #include <mutex>
-#define CLIENT
+#define SERVER
 namespace experiment {
 	template<class T>
 	using u_ptr = std::unique_ptr<T>;
@@ -20,7 +20,6 @@ namespace experiment {
 		void Init() {
 			siv::Println(tcpframework::TcpManager::Init());
 #ifdef SERVER
-
 			server = std::make_unique<tcpframework::ServerSocket>(19132, 5);
 			siv::Println(server->Bind());
 			siv::Println(server->Listen());
@@ -67,7 +66,7 @@ namespace experiment {
 				return sendSocket->IsClose();
 			});
 			send.erase(itr, send.end());
-			siv::Println(send.size());
+			// siv::Println(send.size());
 #elif defined CLIENT
 #endif
 		}

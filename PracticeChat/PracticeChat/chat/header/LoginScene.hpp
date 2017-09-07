@@ -2,6 +2,7 @@
 #include "chat\header\SceneBase.hpp"
 
 namespace chat {
+	/* 起動直後に呼ばれるシーン */
 	class LoginScene : public MySceneBase
 	{
 		siv::GUI gui;
@@ -47,7 +48,6 @@ namespace chat {
 			//ユーザーネームを代入
 			m_data->userName.assign(gui.textField(L"userName").text);
 			changeScene(L"Server");
-
 		}
 
 		//Createボタンを押した時の関数
