@@ -46,6 +46,8 @@ namespace tcpframework {
 
 	ClientSocket::~ClientSocket()
 	{
+		if (closeFlag == false)
+			Close();
 	}
 
 	bool ClientSocket::Connect()const
@@ -82,6 +84,7 @@ namespace tcpframework {
 
 	bool ClientSocket::Close()
 	{
+		closeFlag = true;
 		return shutdown(m_sock, SD_BOTH) == 0 && closesocket(m_sock) == 0;
 	}
 

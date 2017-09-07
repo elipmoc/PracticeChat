@@ -11,6 +11,8 @@ namespace tcpframework {
 		const unsigned short m_port;
 		//受信したデータをひとつ分貯める
 		ByteArray m_buf;
+		//ソケット終了フラグ
+		bool closeFlag = false;
 	public:
 
 		ClientSocket(unsigned short port,const std::string& serverIp);
