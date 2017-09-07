@@ -1,12 +1,16 @@
 #pragma once
 #include <memory>
 #include <string>
+#include "def.hpp"
 #include "ByteArray.hpp"
 
 namespace tcpframework {
 	class ClientSocket {
-		class ClientSocket_impl;
-		std::unique_ptr<ClientSocket_impl> impl;
+		SOCKET m_sock;
+		std::unique_ptr<sockaddr_in> m_serverData;
+		const unsigned short m_port;
+		//受信したデータをひとつ分貯める
+		ByteArray m_buf;
 	public:
 
 		ClientSocket(unsigned short port,const std::string& serverIp);
