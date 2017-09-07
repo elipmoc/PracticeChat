@@ -6,7 +6,7 @@ namespace experiment {
 			s3d::Font font;
 			s3d::String text;
 			int drawX, drawY; // é¿ç€Ç… draw Ç∑ÇÈ
-			int fontPattern;
+			siv::FontStyle fontStyle;
 			int fontSize;
 			siv::Color color;
 
@@ -19,7 +19,14 @@ namespace experiment {
 			Text(int fontSize, int fontPattern, int _drawX, int _drawY, siv::Color color);
 			Text(int fontSize, int fontPattern, int _drawX, int _drawY);
 			*/
-			Text(const siv::String& _text, int _fontSize = 24, int _fontPattern = 0, int _drawX = 0, int _drawY = 0, const siv::Color& _color = { 0, 0, 0 });
+			Text(
+				const siv::String& _text,
+				int _fontSize = 24, 
+				siv::FontStyle _fontStyle = siv::FontStyle::Regular,
+				int _drawX = 0, 
+				int _drawY = 0,
+				const siv::Color& _color = siv::Palette::White
+			);
 
 			void Update();
 			void Draw();

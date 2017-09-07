@@ -11,7 +11,7 @@ namespace experiment {
 		int frame = 0;
 	public:
 		void Init() {
-			text = std::make_unique<ATH::Text>(L"名前スペース！",30, 1);
+			text = std::make_unique<ATH::Text>(L"名前スペース！",30, siv::FontStyle::Italic);
 			text->SetColor({ 255,127,0 });
 		}
 		void Update(){

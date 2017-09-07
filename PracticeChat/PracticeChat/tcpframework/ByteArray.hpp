@@ -19,7 +19,7 @@ namespace tcpframework {
 			}
 		}
 
-		ByteArray() :m_size(-1), m_bytes(nullptr) {}
+		ByteArray() :m_size(0), m_bytes(nullptr) {}
 
 		ByteArray(const ByteArray&) = delete;
 
