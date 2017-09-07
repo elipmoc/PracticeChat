@@ -42,8 +42,7 @@ namespace experiment {
 			});
 #elif defined CLIENT
 			client = std::make_unique<ClientSocket>(19132, "localhost");
-			client->Connect();
-			client->Send("Ç®Ç¡ÇÎÇÎÇÎÇÎÇ®ÇíÅI");
+			client->ConnectAsync([&client = client]() {client->Send("Ç®Ç¡ÇÎÇÎÇÎÇÎÇ®ÇíÅI"); });
 #endif
 		}
 		void Update() {

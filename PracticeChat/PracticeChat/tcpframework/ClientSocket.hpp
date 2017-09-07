@@ -20,7 +20,17 @@ namespace tcpframework {
 		~ClientSocket();
 
 		//接続を待機する。
-		bool Connect()const;
+		void Connect()const;
+
+		//Connectの非同期版
+		template<class ConnectedFunc>
+		void ConnectAsync(ConnectedFunc func)const {
+			std::thread thr([func = func, this]() mutable {
+				Connect();
+				func();
+			});
+			thr.detach();
+		}
 
 		//データを送信する
 		int Send(const std::string&)const;

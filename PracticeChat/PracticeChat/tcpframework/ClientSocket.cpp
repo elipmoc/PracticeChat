@@ -50,13 +50,10 @@ namespace tcpframework {
 			Close();
 	}
 
-	bool ClientSocket::Connect()const
+	void ClientSocket::Connect()const
 	{
 		//Ç¬Ç»Ç™ÇÈÇ‹Ç≈ÉãÅ[Év
-		while (connect(m_sock, (LPSOCKADDR)m_serverData.get(), sizeof(*m_serverData)) == SOCKET_ERROR)
-		{
-		}
-		return true;
+		while (connect(m_sock, (LPSOCKADDR)m_serverData.get(), sizeof(*m_serverData)) == SOCKET_ERROR);
 	}
 
 	int ClientSocket::Send(const std::string & str)const
