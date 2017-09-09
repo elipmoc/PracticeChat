@@ -15,8 +15,7 @@ namespace chat {
 
 			gui = siv::GUI(siv::GUIStyle::Default);
 			//ユーザーネーム
-			gui.add(siv::GUIText::Create(L"ユーザー名"));
-			gui.addln(L"userName", siv::GUITextField::Create(10));
+			gui.add(siv::GUIText::Create(L"ユーザー名:"+m_data->userName));
 
 			//ボタン
 			gui.addln(L"serverOut", siv::GUIButton::Create(L"退室"));
