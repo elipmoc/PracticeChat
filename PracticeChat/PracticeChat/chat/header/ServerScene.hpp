@@ -1,5 +1,6 @@
 #pragma once
 #include "chat\header\SceneBase.hpp"
+#include "Experiment\TestElipmoc.hpp"
 
 namespace chat {
 	class ServerScene : public MySceneBase
