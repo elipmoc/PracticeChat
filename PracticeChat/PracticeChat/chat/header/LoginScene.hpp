@@ -41,21 +41,26 @@ namespace chat {
 		{
 			m_data->font(L"ログインシーン表示").draw();
 		}
-
+	private:
 		//Loginボタンを押した時の関数
 		void LoginPush()
 		{
-			//ユーザーネームを代入
-			m_data->userName.assign(gui.textField(L"userName").text);
+			SetUserName();
 			changeScene(L"Server");
 		}
 
 		//Createボタンを押した時の関数
 		void CreatePush()
 		{
-			//ユーザーネームを代入
-			m_data->userName.assign(gui.textField(L"userName").text);
+			SetUserName();
 			changeScene(L"Create");
+		}
+
+		void SetUserName() {
+			//ユーザーネームを代入
+			m_data->userName = gui.textField(L"userName").text;
+			if (m_data->userName == L"")
+				m_data->userName = L"野獣先輩";
 		}
 	};
 }
