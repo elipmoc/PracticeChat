@@ -10,6 +10,7 @@ namespace experiment {
 			fontStyle = _fontStyle;
 			drawX = _drawX;
 			drawY = _drawY;
+			color = _color;
 			font = experiment::ATH::MakeFont(fontStyle, fontSize);
 		}
 

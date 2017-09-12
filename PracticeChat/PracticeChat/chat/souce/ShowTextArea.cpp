@@ -1,9 +1,10 @@
 #include "../header/ShowTextArea.hpp"
 #include "../../Experiment/ATH/Text.h"
 
+
 namespace chat{
 	ShowTextArea::ShowTextArea()
-		:text(std::make_unique<Text>(L"‚±‚ê‚Í‚Ä‚·‚Æ‚Å‚·",30,siv::FontStyle::Italic,0,0,siv::Palette::Black))
+		:text(std::make_unique<Text>(L"‚±‚ê‚Í‚Ä‚·‚Æ‚Å‚·",30,siv::FontStyle::Italic,0,0,siv::Palette::White))
 	{
 	}
 	ShowTextArea::~ShowTextArea()
