@@ -8,7 +8,6 @@ namespace chat {
 	{
 		experiment::ATH::ServerTest server;
 		siv::GUI gui;
-		ShowTextArea chatShowArea;
 	public:
 
 		void init() override
@@ -40,6 +39,9 @@ namespace chat {
 			gui.add(L"effect", siv::GUICheckBox::Create({ L"Bold",L"Italic" }));
 
 			gui.setCenter(siv::Window::Center());
+
+			//チャット表示エリア
+			gui.addln(L"chatArea", GUIChatArea::Create(L"chatArea"));
 		}
 
 		void update() override
@@ -53,7 +55,6 @@ namespace chat {
 		void draw() const override
 		{
 			m_data->font(L"ルームシーン表示").draw();
-			chatShowArea.Draw();
 		}
 
 		//ServerOutボタンを押した時の関数

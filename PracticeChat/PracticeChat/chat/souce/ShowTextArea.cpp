@@ -3,17 +3,18 @@
 
 
 namespace chat{
-	ShowTextArea::ShowTextArea()
-		:text(std::make_unique<Text>(L"‚±‚ê‚Í‚Ä‚·‚Æ‚Å‚·",30,siv::FontStyle::Italic,0,0,siv::Palette::White))
+	GUIChatArea::GUIChatArea(const s3d::String& label, const siv::WidgetStyle& style)
+		:text(std::make_unique<Text>(L"‚±‚ê‚Í‚Ä‚·‚Æ‚Å‚·",30,siv::FontStyle::Italic,50,50,siv::Palette::Black)),
+		name(label)
 	{
 	}
-	ShowTextArea::~ShowTextArea()
+	GUIChatArea::~GUIChatArea()
 	{
 	}
-	void ShowTextArea::Update()
+	void GUIChatArea::update(const siv::WidgetState& state)
 	{
 	}
-	void ShowTextArea::Draw() const
+	void GUIChatArea::draw(const siv::WidgetState& state) const
 	{
 		text->Draw();
 	}
