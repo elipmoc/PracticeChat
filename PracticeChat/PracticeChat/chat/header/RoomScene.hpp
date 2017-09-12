@@ -1,12 +1,14 @@
 ﻿#pragma once
 #include "chat\header\SceneBase.hpp"
 #include "Experiment\\ATH\ServerTest.hpp"
+#include "../header/ShowTextArea.hpp"
 
 namespace chat {
 	class RoomScene : public MySceneBase
 	{
 		experiment::ATH::ServerTest server;
 		siv::GUI gui;
+		ShowTextArea chatShowArea;
 	public:
 
 		void init() override
@@ -51,6 +53,7 @@ namespace chat {
 		void draw() const override
 		{
 			m_data->font(L"ルームシーン表示").draw();
+			chatShowArea.Draw();
 		}
 
 		//ServerOutボタンを押した時の関数

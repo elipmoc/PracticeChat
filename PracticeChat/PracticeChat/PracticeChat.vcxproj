@@ -167,6 +167,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="chat\souce\ShowTextArea.cpp" />
     <ClCompile Include="Experiment\ATH\Text.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Experiment\ATH\M_Font.cpp" />
@@ -294,6 +295,7 @@
     <ClInclude Include="chat\header\RoomScene.hpp" />
     <ClInclude Include="chat\header\SceneBase.hpp" />
     <ClInclude Include="chat\header\ServerScene.hpp" />
+    <ClInclude Include="chat\header\ShowTextArea.hpp" />
     <ClInclude Include="Experiment\ATH\Text.h" />
     <ClInclude Include="Experiment\TestElipmoc.hpp" />
     <ClInclude Include="Experiment\Test_A_TO_HA.hpp" />
