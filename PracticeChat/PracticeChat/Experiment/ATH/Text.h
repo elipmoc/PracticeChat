@@ -27,7 +27,10 @@ namespace experiment {
 				int _drawY = 0,
 				const siv::Color& _color = siv::Palette::White
 			);
-
+			void SetPos(int _drawx, int _drawy) noexcept{
+				drawX = _drawx;
+				drawY = _drawy;
+			}
 			void Update();
 			void Draw();
 			void SetFontsize(int fontSize) noexcept;

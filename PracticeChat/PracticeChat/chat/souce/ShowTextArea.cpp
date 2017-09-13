@@ -4,7 +4,7 @@
 
 namespace chat{
 	GUIChatArea::GUIChatArea(const s3d::String& label, const siv::WidgetStyle& style)
-		:text(std::make_unique<Text>(L"‚±‚ê‚Í‚Ä‚·‚Æ‚Å‚·",30,siv::FontStyle::Italic,50,50,siv::Palette::Black)),
+		:text(std::make_unique<Text>(L"‚±‚ê‚Í‚Ä‚·‚Æ‚Å‚·abab",30,siv::FontStyle::Italic,50,50,siv::Palette::Black)),
 		name(label)
 	{
 	}
@@ -16,6 +16,7 @@ namespace chat{
 	}
 	void GUIChatArea::draw(const siv::WidgetState& state) const
 	{
+		text->SetPos(state.currentPos.x, state.currentPos.y);
 		text->Draw();
 	}
 }
