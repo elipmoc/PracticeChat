@@ -25,7 +25,7 @@ namespace chat {
 		}
 
 		virtual siv::Size getSize() const override {
-			return{ 50,50 };
+			return{ 70,200 };
 		}
 
 		virtual void update(const siv::WidgetState& state) override;

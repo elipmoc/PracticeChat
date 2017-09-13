@@ -24,7 +24,10 @@ namespace chat {
 			gui.add(L"hr1", siv::GUIHorizontalLine::Create(1));
 
 			//チャット欄
-			gui.addln(L"chatMain", siv::GUITextArea::Create(10, 25));
+			//gui.addln(L"chatMain", siv::GUITextArea::Create(10, 25));
+
+			//チャット表示エリア
+			gui.addln(L"chatArea", GUIChatArea::Create(L"chatArea"));
 
 			gui.add(L"hr2", siv::GUIHorizontalLine::Create(1));
 
@@ -40,8 +43,7 @@ namespace chat {
 
 			gui.setCenter(siv::Window::Center());
 
-			//チャット表示エリア
-			gui.addln(L"chatArea", GUIChatArea::Create(L"chatArea"));
+
 		}
 
 		void update() override
